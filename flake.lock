@@ -1,49 +1,122 @@
 {
-	"nodes": {
-		"darwin": {
-			"inputs": {
-				"nixpkgs": [
-					"nixpkgs"
-				]
-			},
-			"locked": {
-				"lastModified": 1645007752,
-				"narHash": "sha256-FQZMiVP/1vgR7x+TWonMf0NZczrZ4ZjhSTj3rM+kglY=",
-				"owner": "lnl7",
-				"repo": "nix-darwin",
-				"rev": "c944b5ee82a829ddf7fa6bd9300bc2fe3d005fa1",
-				"type": "github"
-			},
-			"original": {
-				"owner": "lnl7",
-				"ref": "master",
-				"repo": "nix-darwin",
-				"type": "github"
-			}
-		},
-		"nixpkgs": {
-			"locked": {
-				"lastModified": 1644793108,
-				"narHash": "sha256-MN/ElRTuE7pWuf99Hr1pbAxA3ApDLYuK6hIsA5sagjc=",
-				"owner": "nixos",
-				"repo": "nixpkgs",
-				"rev": "b61bf7a96aa6ddd3c425fa1db8c45acfdd82e36b",
-				"type": "github"
-			},
-			"original": {
-				"owner": "nixos",
-				"ref": "nixpkgs-21.11-darwin",
-				"repo": "nixpkgs",
-				"type": "github"
-			}
-		},
-		"root": {
-			"inputs": {
-				"darwin": "darwin",
-				"nixpkgs": "nixpkgs"
-			}
-		}
-	},
-	"root": "root",
-	"version": 7
+  "nodes": {
+    "comma": {
+      "inputs": {
+        "nixpkgs": [
+          "pr153229"
+        ]
+      },
+      "locked": {
+        "lastModified": 1646135996,
+        "narHash": "sha256-yS50YKk5sEbxXJihugp+m9noeT7zLAN9ustAQM/F07w=",
+        "owner": "dimitarnestorov",
+        "repo": "comma",
+        "rev": "2ea4a7467512ec164d8ec953babd603f63a146bb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dimitarnestorov",
+        "repo": "comma",
+        "rev": "2ea4a7467512ec164d8ec953babd603f63a146bb",
+        "type": "github"
+      }
+    },
+    "darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1645007752,
+        "narHash": "sha256-FQZMiVP/1vgR7x+TWonMf0NZczrZ4ZjhSTj3rM+kglY=",
+        "owner": "lnl7",
+        "repo": "nix-darwin",
+        "rev": "c944b5ee82a829ddf7fa6bd9300bc2fe3d005fa1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lnl7",
+        "ref": "master",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1644793108,
+        "narHash": "sha256-MN/ElRTuE7pWuf99Hr1pbAxA3ApDLYuK6hIsA5sagjc=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "b61bf7a96aa6ddd3c425fa1db8c45acfdd82e36b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-21.11-darwin",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgsUnstable": {
+      "locked": {
+        "lastModified": 1645937171,
+        "narHash": "sha256-n9f9GZBNMe8UMhcgmmaXNObkH01jjgp7INMrUgBgcy4=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "22dc22f8cedc58fcb11afe1acb08e9999e78be9c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "pr153229": {
+      "locked": {
+        "lastModified": 1641142316,
+        "narHash": "sha256-iKScbln2qHrFe9v/h8AAfdZFxS68BlKBXgovkFxxRWY=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "aa2e4fce3938d21bd7bf11c53c15ade1060bd1ae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "aa2e4fce3938d21bd7bf11c53c15ade1060bd1ae",
+        "type": "github"
+      }
+    },
+    "pr160417": {
+      "locked": {
+        "lastModified": 1646346992,
+        "narHash": "sha256-glgIHulC+XckiaAFOFxSS4sjfkP74hXcKkRoATKMn5M=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "829ef15879a2cadde366975b20630e77441f1a0c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "829ef15879a2cadde366975b20630e77441f1a0c",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "comma": "comma",
+        "darwin": "darwin",
+        "nixpkgs": "nixpkgs",
+        "nixpkgsUnstable": "nixpkgsUnstable",
+        "pr153229": "pr153229",
+        "pr160417": "pr160417"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
 }
