@@ -6,6 +6,7 @@
 		nixpkgsUnstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 		darwin.url = "github:lnl7/nix-darwin/master";
 		darwin.inputs.nixpkgs.follows = "nixpkgs";
+		google-fonts.url = "github:dimitarnestorov/nix-google-fonts-overlay/master";
 		# home-manager.url = "github:nix-community/home-manager";
 		# home-manager.inputs.nixpkgs.follows = "nixpkgs";
     	pr153229.url = "github:nixos/nixpkgs?rev=aa2e4fce3938d21bd7bf11c53c15ade1060bd1ae";
@@ -35,6 +36,7 @@ system = aarch64-darwin
 						iterm2 = pr160417.legacyPackages.${prev.system}.iterm2;
 						comma = comma.defaultPackage.${prev.system};
 					})
+					google-fonts.lib
 				];
 			};
 		};

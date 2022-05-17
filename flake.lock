@@ -42,6 +42,20 @@
         "type": "github"
       }
     },
+    "google-fonts": {
+      "locked": {
+        "owner": "dimitarnestorov",
+        "repo": "nix-google-fonts-overlay",
+        "rev": "c89593b32fd72909506feed8bed13254d860ff68",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dimitarnestorov",
+        "ref": "master",
+        "repo": "nix-google-fonts-overlay",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1644793108,
@@ -110,6 +124,7 @@
       "inputs": {
         "comma": "comma",
         "darwin": "darwin",
+        "google-fonts": "google-fonts",
         "nixpkgs": "nixpkgs",
         "nixpkgsUnstable": "nixpkgsUnstable",
         "pr153229": "pr153229",

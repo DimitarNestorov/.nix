@@ -30,6 +30,7 @@ in {
 		enableFontDir = true;
 		fonts = with pkgs; [
 			(nerdfonts.override { fonts = ["JetBrainsMono"]; })
+			google-fonts-public-sans
 		];
 	};
 
