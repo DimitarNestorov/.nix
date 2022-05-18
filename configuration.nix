@@ -27,7 +27,7 @@ in {
 	};
 
 	fonts = {
-		enableFontDir = true;
+		fontDir.enable = true;
 		fonts = with pkgs; [
 			(nerdfonts.override { fonts = ["JetBrainsMono"]; })
 			google-fonts-public-sans
