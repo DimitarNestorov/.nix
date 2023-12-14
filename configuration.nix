@@ -1,5 +1,15 @@
-{ self, config, pkgs, lib, inputs, ... }:
+{ pkgs, lib, ... }:
 {
+	nix = {
+		package = pkgs.nixFlakes;
+		
+		extraOptions = ''
+experimental-features = nix-command flakes
+'' + pkgs.lib.optionalString (pkgs.system == "aarch64-darwin") ''
+system = aarch64-darwin
+'';
+	};
+
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
 		"vscode"
 	];
@@ -44,7 +54,11 @@
 		# TODO: idof => osascript -e 'id of app "iTerm2"'
 	};
 
+	programs.nix-index-database.comma.enable = true;
+
 	security.pam.enableSudoTouchIdAuth = true;
+
+	services.nix-daemon.enable = true;
 
 	system.stateVersion = 4;
 }

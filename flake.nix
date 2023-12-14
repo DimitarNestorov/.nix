@@ -14,20 +14,11 @@
 
 	outputs = { self, darwin, nixpkgs, nix-index-database, ... }@inputs: 
 	let
-		configuration = { pkgs, ... }: {
-			nix = {
-				package = pkgs.nixFlakes;
-				
-				extraOptions = ''
-experimental-features = nix-command flakes
-'' + pkgs.lib.optionalString (pkgs.system == "aarch64-darwin") ''
-system = aarch64-darwin
-'';
-			};
-
-			services.nix-daemon.enable = true;
-		};
-
+		modules = [
+			./configuration.nix
+			nix-index-database.nixosModules.nix-index
+			{ nix.nixPath = [ "nixpkgs=${nixpkgs.outPath}" ]; }
+		];
 		# homeManagerCommonConfig = with self.homeManagerModules; {
 		# 	imports = [
 		# 		./home
@@ -36,22 +27,17 @@ system = aarch64-darwin
 	in {
 		darwinConfigurations."adonis" = darwin.lib.darwinSystem {
 			system = "aarch64-darwin";
-			modules = [
-				configuration
-				./configuration.nix
-				nix-index-database.nixosModules.nix-index
-				{ programs.nix-index-database.comma.enable = true; }
-			];
+			modules = modules;
 		};
 
 		darwinConfigurations."jason" = darwin.lib.darwinSystem {
 			system = "aarch64-darwin";
-			modules = [ configuration ./configuration.nix ];
+			modules = modules;
 		};
 
 		darwinConfigurations."helenus" = darwin.lib.darwinSystem {
 			system = "x86_64-darwin";
-			modules = [ configuration ./configuration.nix ];
+			modules = modules;
 		};
 	};
 }
