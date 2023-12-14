@@ -1,12 +1,5 @@
 { self, config, pkgs, lib, inputs, ... }:
-let
-	# comma = import (pkgs.fetchFromGitHub {
-	# 	owner = "nix-community";
-	# 	repo = "comma";
-	# 	rev = "54149dc417819af14ddc0d59216d4add5280ad14";
-	# 	sha256 = "sha256-iSkHFMgYh31UDFZ5BZ9AHBivdgO0n2iCrYKjwAWxXvY=";
-	# }) { pkgs = pkgs; };
-in {
+{
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
 		"vscode"
 	];
@@ -20,9 +13,8 @@ in {
 			htop
 			imgcat
 			iterm2
-			comma
 			colorls
-			(callPackage ./iina.nix {})
+			iina
 		];
 	};
 
@@ -30,7 +22,7 @@ in {
 		fontDir.enable = true;
 		fonts = with pkgs; [
 			(nerdfonts.override { fonts = ["JetBrainsMono"]; })
-			google-fonts-public-sans
+			(google-fonts.override { fonts = ["PublicSans"]; })
 		];
 	};
 
@@ -51,6 +43,8 @@ in {
 
 		# TODO: idof => osascript -e 'id of app "iTerm2"'
 	};
+
+	security.pam.enableSudoTouchIdAuth = true;
 
 	system.stateVersion = 4;
 }

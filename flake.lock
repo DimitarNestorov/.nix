@@ -1,26 +1,5 @@
 {
   "nodes": {
-    "comma": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgsUnstable"
-        ]
-      },
-      "locked": {
-        "lastModified": 1646135996,
-        "narHash": "sha256-yS50YKk5sEbxXJihugp+m9noeT7zLAN9ustAQM/F07w=",
-        "owner": "dimitarnestorov",
-        "repo": "comma",
-        "rev": "2ea4a7467512ec164d8ec953babd603f63a146bb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "dimitarnestorov",
-        "repo": "comma",
-        "rev": "2ea4a7467512ec164d8ec953babd603f63a146bb",
-        "type": "github"
-      }
-    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -28,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1651916036,
-        "narHash": "sha256-UuD9keUGm4IuVEV6wdSYbuRm7CwfXE63hVkzKDjVsh4=",
+        "lastModified": 1700795494,
+        "narHash": "sha256-gzGLZSiOhf155FW7262kdHo2YDeugp3VuIFb4/GGng0=",
         "owner": "lnl7",
         "repo": "nix-darwin",
-        "rev": "2f2bdf658d2b79bada78dc914af99c53cad37cba",
+        "rev": "4b9b83d5a92e8c1fbfd8eb27eda375908c11ec4d",
         "type": "github"
       },
       "original": {
@@ -42,61 +21,47 @@
         "type": "github"
       }
     },
-    "google-fonts": {
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1652756232,
-        "narHash": "sha256-E2qtDrOFP0WlIlHA0OsEbZbD6lc8Fj5V6opbx+gaTI4=",
-        "owner": "dimitarnestorov",
-        "repo": "nix-google-fonts-overlay",
-        "rev": "c89593b32fd72909506feed8bed13254d860ff68",
+        "lastModified": 1702291765,
+        "narHash": "sha256-kfxavgLKPIZdYVPUPcoDZyr5lleymrqbr5G9PVfQ2NY=",
+        "owner": "Mic92",
+        "repo": "nix-index-database",
+        "rev": "45d82e0a8b9dd6c5dd9da835ac0c072239af7785",
         "type": "github"
       },
       "original": {
-        "owner": "dimitarnestorov",
-        "ref": "master",
-        "repo": "nix-google-fonts-overlay",
+        "owner": "Mic92",
+        "repo": "nix-index-database",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1652824101,
-        "narHash": "sha256-R8ldgGP40+6gAOzNSmeeWYGZABr7EKZ1Edv4pUAskEQ=",
+        "lastModified": 1702424505,
+        "narHash": "sha256-Mj4Unppuzd05/JFrTQ+i/8+td0MRnaHpp+hInzkAo2A=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "2816fee9ce7ff2747db8b060192941c429691e94",
+        "rev": "a46b965ea7d1b9587a46f91adfdbac29e56c9b87",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixpkgs-21.11-darwin",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgsUnstable": {
-      "locked": {
-        "lastModified": 1652739558,
-        "narHash": "sha256-znGkjGugajqF/sFS+H4+ENmGTaVPFE0uu1JjQZJLEaQ=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "ff691ed9ba21528c1b4e034f36a04027e4522c58",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixpkgs-unstable",
+        "ref": "nixpkgs-23.11-darwin",
         "repo": "nixpkgs",
         "type": "github"
       }
     },
     "root": {
       "inputs": {
-        "comma": "comma",
         "darwin": "darwin",
-        "google-fonts": "google-fonts",
-        "nixpkgs": "nixpkgs",
-        "nixpkgsUnstable": "nixpkgsUnstable"
+        "nix-index-database": "nix-index-database",
+        "nixpkgs": "nixpkgs"
       }
     }
   },
