@@ -25,6 +25,7 @@ system = aarch64-darwin
 			iterm2
 			colorls
 			iina
+			tailscale
 		];
 	};
 
@@ -59,6 +60,8 @@ system = aarch64-darwin
 	security.pam.enableSudoTouchIdAuth = true;
 
 	services.nix-daemon.enable = true;
+
+	services.tailscale.enable = true;
 
 	system.stateVersion = 4;
 }
