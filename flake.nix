@@ -2,7 +2,7 @@
 	description = "System configuration";
 
 	inputs = {
-		nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin";
+		nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 		# nixpkgsUnstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 		darwin.url = "github:lnl7/nix-darwin/master";
 		darwin.inputs.nixpkgs.follows = "nixpkgs";
