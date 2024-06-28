@@ -30,8 +30,7 @@ system = aarch64-darwin
 	};
 
 	fonts = {
-		fontDir.enable = true;
-		fonts = with pkgs; [
+		packages = with pkgs; [
 			(nerdfonts.override { fonts = ["JetBrainsMono"]; })
 			(google-fonts.override { fonts = ["PublicSans"]; })
 		];
