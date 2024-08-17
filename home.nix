@@ -8,6 +8,9 @@
 		enable = true;
 		userName = "Dimitar Nestorov";
 		userEmail = "8790386+dimitarnestorov@users.noreply.github.com";
+		extraConfig = {
+			push.autoSetupRemote = true;
+		};
 	};
 
 	programs.vscode = {

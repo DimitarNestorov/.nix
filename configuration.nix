@@ -99,5 +99,32 @@ system = aarch64-darwin
 		home = "/Users/dimitar";
 	};
 
+	system.defaults = {
+		NSGlobalDomain = {
+			# Enables Keyboard -> Keyboard navigation
+			AppleKeyboardUIMode = 3;
+			# Sets Appearance -> Sidebar -> Sidebar icon size to "Large"
+			NSTableViewDefaultSizeMode = 3;
+			NSWindowResizeTime = 0.1;
+			NSWindowShouldDragOnGesture = true;
+			# Enables Sound -> Sound Effects -> Play feedback when volume is changed
+			"com.apple.sound.beep.feedback" = 1;
+			# Sets Trackpad -> Point & Click -> Tracking speed
+			"com.apple.trackpad.scaling" = 0.875;
+			# Enables Trackpad -> Point & Click -> Force Click and haptic feedback
+			"com.apple.trackpad.forceClick" = true;
+			# Enables Trackpad -> Scroll & Zoom -> Natural scrolling and Mouse -> Nautral scrolling
+			"com.apple.swipescrolldirection" = true;
+			# Sets Language & Region -> Measurement system to "Metric"
+			AppleMeasurementUnits = "Centimeters";
+			# Sets Language & Region -> Measurement system to "Metric"
+			AppleMetricUnits = 1;
+			# Sets Language & Region -> Temperature to "Celsius"
+			AppleTemperatureUnit = "Celsius";
+			# Disables Date & Time -> 24-hour time
+			AppleICUForce24HourTime = false;
+		};
+	};
+
 	system.stateVersion = 4;
 }
