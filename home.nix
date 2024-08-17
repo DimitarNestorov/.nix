@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  home.stateVersion = "24.05";
+	home.stateVersion = "24.05";
 
 	programs.home-manager.enable = true;
 	
@@ -16,12 +16,18 @@
 		extensions = with pkgs.vscode-extensions; [
 			jnoortheen.nix-ide
 			mhutchie.git-graph
+			mkhl.direnv
 		];
 		userSettings = {
-      "update.mode" = "none";
-      "extensions.autoUpdate" = false;
-      "extensions.autoCheckUpdates" = false;
-      "files.autoSave" = "onFocusChange";
+			"direnv.path.executable" = "/run/current-system/sw/bin/direnv";
+			"editor.wordWrap" = "on";
+			"editor.minimap.enabled" = false;
+			"extensions.autoCheckUpdates" = false;
+			"extensions.autoUpdate" = false;
+			"files.autoSave" = "onFocusChange";
+			"git.autofetch" = true;
+			"git.path" = "/run/current-system/sw/bin/git";
+			"terminal.integrated.defaultProfile.osx" = "fish";
 			"terminal.integrated.profiles.osx" = {
 				"bash" = {
 					"path" = "bash";
@@ -37,10 +43,7 @@
 					"args" = ["-l"];
 				};
 			};
-      "terminal.integrated.defaultProfile.osx" = "fish";
-      "git.path" = "/run/current-system/sw/bin/git";
-      "git.autofetch" = true;
-      "editor.wordWrap" = "on";
-    };
+			"update.mode" = "none";
+		};
 	};
 }
