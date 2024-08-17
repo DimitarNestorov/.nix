@@ -11,14 +11,19 @@ system = aarch64-darwin
 	};
 
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-		"vscode"
+		"Xcode.app"
+		"google-chrome"
 	];
 
 	environment = {
 		# List packages installed in system profile. To search by name, run:
 		# $ nix-env -qaP | grep wget
 		systemPackages = with pkgs; [
-			vscode # TODO: vscodium
+			# TODO: _1password-gui
+			darwin.xcode_15_1
+			google-chrome
+			vscodium
+			git
 			direnv
 			htop
 			imgcat
@@ -43,6 +48,31 @@ system = aarch64-darwin
 			darwin-rebuild-switch = "~/.nix/rebuild-and-switch.sh";
 			ls = "colorls";
 		};
+
+		# https://github.com/LnL7/nix-darwin/issues/122#issuecomment-2272570087
+		loginShellInit =
+		let
+			# We should probably use `config.environment.profiles`, as described in
+			# https://github.com/LnL7/nix-darwin/issues/122#issuecomment-1659465635
+			# but this takes into account the new XDG paths used when the nix
+			# configuration has `use-xdg-base-directories` enabled. See:
+			# https://github.com/LnL7/nix-darwin/issues/947 for more information.
+			profiles = [
+				"/etc/profiles/per-user/$USER" # Home manager packages
+				"$HOME/.nix-profile"
+				"(set -q XDG_STATE_HOME; and echo $XDG_STATE_HOME; or echo $HOME/.local/state)/nix/profile"
+				"/run/current-system/sw"
+				"/nix/var/nix/profiles/default"
+			];
+
+			makeBinSearchPath =
+			lib.concatMapStringsSep " " (path: "${path}/bin");
+		in
+		''
+			# Fix path that was re-ordered by Apple's path_helper
+			fish_add_path --move --prepend --path ${makeBinSearchPath profiles}
+			set fish_user_paths $fish_user_paths
+		'';
 
 		# functions = {
 		# 	fish_greeting = {
