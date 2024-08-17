@@ -92,5 +92,10 @@ system = aarch64-darwin
 
 	services.tailscale.enable = true;
 
+	users.users.dimitar = {
+		name = "dimitar";
+		home = "/Users/dimitar";
+	};
+
 	system.stateVersion = 4;
 }

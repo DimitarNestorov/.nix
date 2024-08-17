@@ -8,14 +8,22 @@
 		darwin.inputs.nixpkgs.follows = "nixpkgs";
 		nix-index-database.url = "github:nix-community/nix-index-database/838a910df0f7e542de2327036b2867fd68ded3a2";
 		nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-		# home-manager.url = "github:nix-community/home-manager";
-		# home-manager.inputs.nixpkgs.follows = "nixpkgs";
+		home-manager.url = "github:nix-community/home-manager/release-24.05";
+		home-manager.inputs.nixpkgs.follows = "nixpkgs";
 	};
 
-	outputs = { self, darwin, nixpkgs, nix-index-database, ... }@inputs: 
+	outputs = { self, darwin, nixpkgs, nix-index-database, home-manager, ... }@inputs: 
 	let
 		modules = [
 			./configuration.nix
+
+			home-manager.darwinModules.home-manager
+			{
+				home-manager.useGlobalPkgs = true;
+				home-manager.useUserPackages = true;
+				home-manager.users.dimitar = import ./home.nix;
+			}
+
 			nix-index-database.nixosModules.nix-index
 			{ nix.nixPath = [ "nixpkgs=${nixpkgs.outPath}" ]; }
 		];
