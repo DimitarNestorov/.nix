@@ -13,6 +13,7 @@ system = aarch64-darwin
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
 		"Xcode.app"
 		"google-chrome"
+		"bartender"
 	];
 
 	environment = {
@@ -22,6 +23,7 @@ system = aarch64-darwin
 			# TODO: _1password-gui
 			darwin.xcode_15_1
 			google-chrome
+			bartender
 			vscodium
 			git
 			direnv
