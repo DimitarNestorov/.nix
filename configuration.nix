@@ -124,6 +124,51 @@ system = aarch64-darwin
 			# Disables Date & Time -> 24-hour time
 			AppleICUForce24HourTime = false;
 		};
+
+		# Enables Control Center -> Menu Bar Only -> Clock Options… -> Display the time with seconds
+		menuExtraClock.ShowSeconds = true;
+
+		dock = {
+			appswitcher-all-displays = true;
+			# Enables Desktop & Dock -> Mission Control -> Group windows by application
+			expose-group-by-app = true;
+			# Disables Desktop & Dock -> Mission Control -> Automatically rearrange Spaces based on most recent use
+			mru-spaces = false;
+			# Disables Desktop & Dock -> Dock -> Show suggested and recent apps in Dock
+			show-recents = false;
+			# Sets Desktop & Dock -> Dock -> Size to Large
+			tilesize = 128;
+			persistent-apps = [
+				"/System/Applications/Mail.app"
+				"/System/Applications/Notes.app"
+				"/System/Applications/Messages.app"
+				"/System/Applications/Music.app"
+				"/System/Cryptexes/App/System/Applications/Safari.app"
+				"${pkgs.vscodium}/Applications/VSCodium.app"
+				"${pkgs.darwin.xcode_15_1}"
+				"${pkgs.darwin.xcode_15_1}/Contents/Developer/Applications/Simulator.app"
+				"${pkgs.iterm2}/Applications/iTerm2.app"
+				"${pkgs.google-chrome}/Applications/Google Chrome.app"
+				"/System/Applications/Utilities/Screen Sharing.app"
+				"/System/Applications/Launchpad.app"
+			];
+			persistent-others = [
+				"/Users/dimitar/Downloads"
+			];
+
+			# Hot Corners
+			wvous-tl-corner = 1; # Disabled
+			wvous-tr-corner = 12; # Notification Center
+			wvous-bl-corner = 10; # Put Display to Sleep
+			wvous-br-corner = 14; # Quick Note
+		};
+
+		CustomUserPreferences = {
+			"com.apple.dock" = {
+				springboard-columns = 10;
+				springboard-rows = 5;
+			};
+		};
 	};
 
 	system.stateVersion = 4;
