@@ -1,17 +1,23 @@
-{ pkgs, pkgs-aldente, lib, ... }:
+{
+	pkgs,
+	pkgs-aldente,
+	pkgs-bartender,
+	lib,
+	...
+}:
 {
 	nix.settings.experimental-features = "nix-command flakes";
 
   nixpkgs.overlays = [
     (self: super: {
       aldente = pkgs-aldente.aldente;
+      bartender = pkgs-bartender.bartender;
     })
   ];
 
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
 		"Xcode.app"
 		"google-chrome"
-		"bartender"
 	];
 
 	environment = {
