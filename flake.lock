@@ -79,12 +79,29 @@
         "type": "github"
       }
     },
+    "nixpkgs-aldente": {
+      "locked": {
+        "lastModified": 1723300610,
+        "narHash": "sha256-+r4na3k3PJ61CZUqEPpeqIfwHnuUUBfKTFfpOnv0uQI=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "629b012e04c93a5f653fc62060f2e0473ba74a0c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "629b012e04c93a5f653fc62060f2e0473ba74a0c",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "darwin": "darwin",
         "home-manager": "home-manager",
         "nix-index-database": "nix-index-database",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-aldente": "nixpkgs-aldente"
       }
     }
   },

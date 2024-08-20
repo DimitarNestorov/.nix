@@ -3,7 +3,7 @@
 
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
-		# nixpkgsUnstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+		nixpkgs-aldente.url = "github:nixos/nixpkgs/629b012e04c93a5f653fc62060f2e0473ba74a0c";
 		darwin.url = "github:lnl7/nix-darwin/master";
 		darwin.inputs.nixpkgs.follows = "nixpkgs";
 		nix-index-database.url = "github:nix-community/nix-index-database/838a910df0f7e542de2327036b2867fd68ded3a2";
@@ -12,9 +12,9 @@
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
 	};
 
-	outputs = { self, darwin, nixpkgs, nix-index-database, home-manager, ... }@inputs: 
+	outputs = { self, darwin, nixpkgs, nixpkgs-aldente, nix-index-database, home-manager, ... }@inputs: 
 	let
-		modules = [
+		darwinModules = [
 			./configuration.nix
 
 			home-manager.darwinModules.home-manager
@@ -27,25 +27,23 @@
 			nix-index-database.nixosModules.nix-index
 			{ nix.nixPath = [ "nixpkgs=${nixpkgs.outPath}" ]; }
 		];
-		# homeManagerCommonConfig = with self.homeManagerModules; {
-		# 	imports = [
-		# 		./home
-		# 	];
-		# };
+
+		configuration = systemArg: darwin.lib.darwinSystem rec {
+			system = systemArg;
+			modules = darwinModules;
+			specialArgs = {
+				pkgs-aldente = import nixpkgs-aldente {
+					inherit system;
+
+ 					config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs-aldente.lib.getName pkg) [
+						"aldente"
+					];
+				};
+			};
+		};
 	in {
-		darwinConfigurations."adonis" = darwin.lib.darwinSystem {
-			system = "aarch64-darwin";
-			modules = modules;
-		};
-
-		darwinConfigurations."jason" = darwin.lib.darwinSystem {
-			system = "aarch64-darwin";
-			modules = modules;
-		};
-
-		darwinConfigurations."helenus" = darwin.lib.darwinSystem {
-			system = "x86_64-darwin";
-			modules = modules;
-		};
+		darwinConfigurations."adonis" = configuration "aarch64-darwin";
+		darwinConfigurations."jason" = configuration "aarch64-darwin";
+		darwinConfigurations."helenus" = configuration "x86_64-darwin";
 	};
 }

@@ -1,14 +1,12 @@
-{ pkgs, lib, ... }:
+{ pkgs, pkgs-aldente, lib, ... }:
 {
-	nix = {
-		package = pkgs.nixFlakes;
-		
-		extraOptions = ''
-experimental-features = nix-command flakes
-'' + pkgs.lib.optionalString (pkgs.system == "aarch64-darwin") ''
-system = aarch64-darwin
-'';
-	};
+	nix.settings.experimental-features = "nix-command flakes";
+
+  nixpkgs.overlays = [
+    (self: super: {
+      aldente = pkgs-aldente.aldente;
+    })
+  ];
 
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
 		"Xcode.app"
@@ -24,6 +22,7 @@ system = aarch64-darwin
 			darwin.xcode_15_1
 			google-chrome
 			bartender
+			aldente
 			vscodium
 			git
 			direnv
