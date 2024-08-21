@@ -79,35 +79,19 @@
         "type": "github"
       }
     },
-    "nixpkgs-aldente": {
+    "nixpkgs-aldente-bartender": {
       "locked": {
-        "lastModified": 1723300610,
-        "narHash": "sha256-+r4na3k3PJ61CZUqEPpeqIfwHnuUUBfKTFfpOnv0uQI=",
+        "lastModified": 1724200339,
+        "narHash": "sha256-Fga3zGESqVtRgNolUJsG9u9yu1bdE2iZLDS6yR6bwmQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "629b012e04c93a5f653fc62060f2e0473ba74a0c",
+        "rev": "d7a16e05a14563e5455e6ced4577d8b60f35b7ef",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "629b012e04c93a5f653fc62060f2e0473ba74a0c",
-        "type": "github"
-      }
-    },
-    "nixpkgs-bartender": {
-      "locked": {
-        "lastModified": 1723922163,
-        "narHash": "sha256-y58JKXx7zfY/iWphVfxztwbIb4FqRYsH97JKCdxCgk8=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "6fd0909cd795066a340de701499c446e16f47d17",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "6fd0909cd795066a340de701499c446e16f47d17",
+        "rev": "d7a16e05a14563e5455e6ced4577d8b60f35b7ef",
         "type": "github"
       }
     },
@@ -117,8 +101,7 @@
         "home-manager": "home-manager",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-aldente": "nixpkgs-aldente",
-        "nixpkgs-bartender": "nixpkgs-bartender"
+        "nixpkgs-aldente-bartender": "nixpkgs-aldente-bartender"
       }
     }
   },

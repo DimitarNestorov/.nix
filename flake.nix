@@ -3,8 +3,7 @@
 
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
-		nixpkgs-aldente.url = "github:nixos/nixpkgs/629b012e04c93a5f653fc62060f2e0473ba74a0c";
-		nixpkgs-bartender.url = "github:nixos/nixpkgs/6fd0909cd795066a340de701499c446e16f47d17";
+		nixpkgs-aldente-bartender.url = "github:nixos/nixpkgs/d7a16e05a14563e5455e6ced4577d8b60f35b7ef";
 		darwin.url = "github:lnl7/nix-darwin/master";
 		darwin.inputs.nixpkgs.follows = "nixpkgs";
 		nix-index-database.url = "github:nix-community/nix-index-database/838a910df0f7e542de2327036b2867fd68ded3a2";
@@ -17,8 +16,7 @@
 		self,
 		darwin,
 		nixpkgs,
-		nixpkgs-aldente,
-		nixpkgs-bartender,
+		nixpkgs-aldente-bartender,
 		nix-index-database,
 		home-manager,
 		...
@@ -41,17 +39,11 @@
 			system = systemArg;
 			modules = darwinModules;
 			specialArgs = {
-				pkgs-aldente = import nixpkgs-aldente {
+				pkgs-aldente-bartender = import nixpkgs-aldente-bartender {
 					inherit system;
 
- 					config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs-aldente.lib.getName pkg) [
+ 					config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs-aldente-bartender.lib.getName pkg) [
 						"aldente"
-					];
-				};
-				pkgs-bartender = import nixpkgs-bartender {
-					inherit system;
-
- 					config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs-aldente.lib.getName pkg) [
 						"bartender"
 					];
 				};
