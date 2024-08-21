@@ -4,6 +4,7 @@
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
 		nixpkgs-aldente-bartender.url = "github:nixos/nixpkgs/d7a16e05a14563e5455e6ced4577d8b60f35b7ef";
+		nixpkgs-iterm2.url = "github:nixos/nixpkgs/d7a16e05a14563e5455e6ced4577d8b60f35b7ef";
 		darwin.url = "github:lnl7/nix-darwin/master";
 		darwin.inputs.nixpkgs.follows = "nixpkgs";
 		nix-index-database.url = "github:nix-community/nix-index-database/838a910df0f7e542de2327036b2867fd68ded3a2";
@@ -17,6 +18,7 @@
 		darwin,
 		nixpkgs,
 		nixpkgs-aldente-bartender,
+		nixpkgs-iterm2,
 		nix-index-database,
 		home-manager,
 		...
@@ -47,6 +49,8 @@
 						"bartender"
 					];
 				};
+
+				pkgs-iterm2 = import nixpkgs-iterm2 { inherit system; };
 			};
 		};
 	in {

@@ -1,6 +1,7 @@
 {
 	pkgs,
 	pkgs-aldente-bartender,
+	pkgs-iterm2,
 	lib,
 	...
 }:
@@ -11,6 +12,7 @@
     (self: super: {
       aldente = pkgs-aldente-bartender.aldente;
       bartender = pkgs-aldente-bartender.bartender;
+			iterm2 = pkgs-iterm2.iterm2;
     })
   ];
 
