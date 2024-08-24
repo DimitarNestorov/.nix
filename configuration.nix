@@ -140,6 +140,11 @@
 					"en-US"
 					"bg-BG"
 				];
+
+				# Sets Language & Region -> First day of week to "Monday"
+				AppleFirstWeekday = {
+					gregorian = 2;
+				};
 			};
 
 			"com.apple.AppleMultitouchTrackpad" = {
