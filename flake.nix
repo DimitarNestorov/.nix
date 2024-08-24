@@ -4,7 +4,7 @@
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
 		nixpkgs-aldente-bartender.url = "github:nixos/nixpkgs/d7a16e05a14563e5455e6ced4577d8b60f35b7ef";
-		nixpkgs-iterm2.url = "github:nixos/nixpkgs/d7a16e05a14563e5455e6ced4577d8b60f35b7ef";
+		nixpkgs-iterm2.url = "github:nixos/nixpkgs/31d78137d577f5205690083510512ff61895cf5c";
 		darwin.url = "github:lnl7/nix-darwin/master";
 		darwin.inputs.nixpkgs.follows = "nixpkgs";
 		nix-index-database.url = "github:nix-community/nix-index-database/838a910df0f7e542de2327036b2867fd68ded3a2";
