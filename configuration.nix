@@ -125,6 +125,13 @@
 			wvous-br-corner = 14; # Quick Note
 		};
 
+		universalaccess = {
+			# It sets Accessibility -> Display -> Pointer -> Pointer size to 2.0
+			mouseDriverCursorSize = 2.0;
+			# Enables Accessibility -> Zoom -> Use scroll gesture with modifier keys to zoom
+			closeViewScrollWheelToggle = true;
+		};
+
 		CustomUserPreferences = {
 			NSGlobalDomain = {
 				AppleLanguages = [
@@ -151,6 +158,23 @@
 			"com.apple.dock" = {
 				springboard-columns = 10;
 				springboard-rows = 5;
+			};
+
+			"com.apple.universalaccess" = {
+				cursorIsCustomized = 1;
+				cursorFill = {
+					alpha = 1;
+					blue = 0;
+					green = 0;
+					red = 0;
+				};
+				# Sets Accessibility -> Display -> Pointer -> Pointer outline color to #BBBBFF
+				cursorOutline = {
+					alpha = 1;
+					blue = 1;
+					green = 187.0 / 255;
+					red = 187.0 / 255;
+				};
 			};
 		};
 	};
