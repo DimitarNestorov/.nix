@@ -7,7 +7,7 @@
 		nixpkgs-iterm2.url = "github:nixos/nixpkgs/31d78137d577f5205690083510512ff61895cf5c";
 		darwin.url = "github:lnl7/nix-darwin/master";
 		darwin.inputs.nixpkgs.follows = "nixpkgs";
-		nix-index-database.url = "github:nix-community/nix-index-database/838a910df0f7e542de2327036b2867fd68ded3a2";
+		nix-index-database.url = "github:nix-community/nix-index-database";
 		nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 		home-manager.url = "github:nix-community/home-manager/release-24.05";
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -33,8 +33,7 @@
 				home-manager.users.dimitar = import ./home.nix;
 			}
 
-			nix-index-database.nixosModules.nix-index
-			{ nix.nixPath = [ "nixpkgs=${nixpkgs.outPath}" ]; }
+			nix-index-database.darwinModules.nix-index
 		];
 
 		configuration = systemArg: darwin.lib.darwinSystem rec {
