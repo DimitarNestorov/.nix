@@ -48,27 +48,7 @@ in {
 			code = "codium";
 		};
 
-		# https://github.com/LnL7/nix-darwin/issues/122#issuecomment-2272570087
-		loginShellInit = let
-			# We should probably use `config.environment.profiles`, as described in
-			# https://github.com/LnL7/nix-darwin/issues/122#issuecomment-1659465635
-			# but this takes into account the new XDG paths used when the nix
-			# configuration has `use-xdg-base-directories` enabled. See:
-			# https://github.com/LnL7/nix-darwin/issues/947 for more information.
-			profiles = [
-				"/etc/profiles/per-user/$USER" # Home manager packages
-				"$HOME/.nix-profile"
-				"(set -q XDG_STATE_HOME; and echo $XDG_STATE_HOME; or echo $HOME/.local/state)/nix/profile"
-				"/run/current-system/sw"
-				"/nix/var/nix/profiles/default"
-			];
-
-			makeBinSearchPath = lib.concatMapStringsSep " " (path: "${path}/bin");
-		in ''
-			# Fix path that was re-ordered by Apple's path_helper
-			fish_add_path --move --prepend --path ${makeBinSearchPath profiles}
-			set fish_user_paths $fish_user_paths
-
+		loginShellInit = ''
 			source ${iterm2-terminal-integration}/bin/iterm2_shell_integration.fish
 		'';
 
@@ -107,7 +87,7 @@ in {
 		userSettings = {
 			"direnv.path.executable" = "/etc/profiles/per-user/dimitar/bin/direnv";
 			"editor.fontFamily" = "JetBrainsMono Nerd Font";
-  		"editor.fontLigatures" = true;
+			"editor.fontLigatures" = true;
 			"editor.fontSize" = 16;
 			"editor.insertSpaces" = false;
 			"editor.minimap.enabled" = false;
@@ -141,5 +121,19 @@ in {
 
 	xdg.configFile = {
 		"fish/conf.d/tide-vars.fish".text = fishSetVars (import ./tide-config.nix);
+
+		# https://github.com/LnL7/nix-darwin/issues/122#issuecomment-2272570087
+		"fish/conf.d/add-paths.fish".text = let
+			profiles = [
+				"/etc/profiles/per-user/$USER" # Home manager packages
+				"/run/current-system/sw"
+			];
+
+			makeBinSearchPath = lib.concatMapStringsSep " " (path: "${path}/bin");
+		in ''
+			# Fix path that was re-ordered by Apple's path_helper
+			fish_add_path --move --prepend --path ${makeBinSearchPath profiles}
+			set fish_user_paths $fish_user_paths
+		'';
 	};
 }
