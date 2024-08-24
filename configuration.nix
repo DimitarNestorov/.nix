@@ -206,6 +206,24 @@
 				hoverTextIsHoveringAndVisible = 0;
 				hoverTextModifier = 1; # Changes modifier key to option
 				hoverTextShowWhenTyping = 0;
+
+				"com.apple.custommenu.apps" = [
+					"com.apple.Safari"
+					"com.apple.mail"
+				];
+			};
+
+			"com.apple.Safari" = {
+				NSUserKeyEquivalents = {
+					Back = "^$-";
+					"Undo Close Tab" = "@~^$[";
+				};
+			};
+
+			"com.apple.mail" = {
+				NSUserKeyEquivalents = {
+					Delete = "@w";
+				};
 			};
 		};
 	};
