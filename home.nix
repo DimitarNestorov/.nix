@@ -29,6 +29,7 @@ in {
 	home.packages = with pkgs; [
 		grc
 		iterm2-terminal-integration
+		terminal-notifier
 	];
 
 	programs.home-manager.enable = true;
@@ -55,6 +56,7 @@ in {
 		plugins = with pkgs.fishPlugins; [
 			{ name = "tide"; src = tide.src; }
 			{ name = "grc"; src = grc.src; }
+			{ name = "done"; src = done.src; }
 		];
 
 		functions = {
