@@ -225,6 +225,24 @@
 					Delete = "@w";
 				};
 			};
+
+			"com.apple.Safari" = {
+				# Disables AutoFill -> AutoFill web forms -> Credit cards
+				AutoFillCreditCardData = 0;
+				# Disables AutoFill -> AutoFill web forms -> User names and passwords
+				AutoFillPasswords = 0;
+				# Enables Advanced -> Smart Search field -> Show full website address
+				ShowFullURLInSmartSearchField = 1;
+
+				IncludeDevelopMenu = 1;
+				IncludeInternalDebugMenu = 1;
+				WebKitDeveloperExtrasEnabledPreferenceKey = 1;
+				"WebKitPreferences.developerExtrasEnabled" = 1;
+			};
+
+			"com.apple.Safari.SandboxBroker" = {
+				ShowDevelopMenu = 1;
+			};
 		};
 	};
 
