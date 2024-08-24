@@ -85,12 +85,15 @@ in {
 			jnoortheen.nix-ide
 			mhutchie.git-graph
 			mkhl.direnv
+			esbenp.prettier-vscode
 		];
 		userSettings = {
 			"direnv.path.executable" = "/etc/profiles/per-user/dimitar/bin/direnv";
+			"editor.defaultFormatter" = "esbenp.prettier-vscode";
 			"editor.fontFamily" = "JetBrainsMono Nerd Font";
 			"editor.fontLigatures" = true;
 			"editor.fontSize" = 16;
+			"editor.formatOnSave" = true;
 			"editor.insertSpaces" = false;
 			"editor.minimap.enabled" = false;
 			"editor.wordWrap" = "on";
@@ -99,6 +102,10 @@ in {
 			"files.autoSave" = "onFocusChange";
 			"git.autofetch" = true;
 			"git.path" = "/run/current-system/sw/bin/git";
+			"prettier.semi" = false;
+			"prettier.tabWidth" = 4;
+			"prettier.trailingComma" = "all";
+			"prettier.useTabs" = true;
 			"terminal.integrated.defaultProfile.osx" = "fish";
 			"terminal.integrated.fontSize" = 15;
 			"terminal.integrated.lineHeight" = 1.1;
