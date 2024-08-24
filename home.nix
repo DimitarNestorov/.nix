@@ -21,6 +21,8 @@ let
 			cp $src $outDir/iterm2_shell_integration.fish
 		'';
 	};
+
+	fishSetVars = vals: pkgs.lib.foldlAttrs (acc: name: value: acc + "set -u ${name} ${toString value}\n") "" vals;
 in {
 	home.stateVersion = "24.05";
 
@@ -69,8 +71,9 @@ in {
 			source ${iterm2-terminal-integration}/bin/iterm2_shell_integration.fish
 		'';
 
-    plugins = [
-      { name = "grc"; src = pkgs.fishPlugins.grc.src; }
+		plugins = with pkgs.fishPlugins; [
+			{ name = "tide"; src = tide.src; }
+			{ name = "grc"; src = grc.src; }
 		];
 
 		functions = {
@@ -102,14 +105,20 @@ in {
 		];
 		userSettings = {
 			"direnv.path.executable" = "/etc/profiles/per-user/dimitar/bin/direnv";
-			"editor.wordWrap" = "on";
+			"editor.fontFamily" = "JetBrainsMono Nerd Font";
+  		"editor.fontLigatures" = true;
+			"editor.fontSize" = 16;
+			"editor.insertSpaces" = false;
 			"editor.minimap.enabled" = false;
+			"editor.wordWrap" = "on";
 			"extensions.autoCheckUpdates" = false;
 			"extensions.autoUpdate" = false;
 			"files.autoSave" = "onFocusChange";
 			"git.autofetch" = true;
 			"git.path" = "/run/current-system/sw/bin/git";
 			"terminal.integrated.defaultProfile.osx" = "fish";
+			"terminal.integrated.fontSize" = 15;
+			"terminal.integrated.lineHeight" = 1.1;
 			"terminal.integrated.profiles.osx" = {
 				"bash" = {
 					"path" = "bash";
@@ -127,5 +136,9 @@ in {
 			};
 			"update.mode" = "none";
 		};
+	};
+
+	xdg.configFile = {
+		"fish/conf.d/tide-vars.fish".text = fishSetVars (import ./tide-config.nix);
 	};
 }
