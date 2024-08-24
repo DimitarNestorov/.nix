@@ -119,6 +119,40 @@ in {
 			};
 			"update.mode" = "none";
 		};
+		keybindings = [
+			{
+				key = "shift+cmd+g";
+				command = "-workbench.action.terminal.findPrevious";
+				when = "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported";
+			}
+			{
+				key = "shift+cmd+g";
+				command = "-editor.action.previousMatchFindAction";
+				when = "editorFocus";
+			}
+			{
+				key = "shift+cmd+g";
+				command = "workbench.view.scm";
+				when = "workbench.scm.active";
+			}
+			{
+				key = "ctrl+shift+g";
+				command = "-workbench.view.scm";
+				when = "workbench.scm.active";
+			}
+			{
+				key = "ctrl+shift+-";
+				command = "workbench.action.navigateBack";
+			}
+			{
+				key = "ctrl+-";
+				command = "-workbench.action.navigateBack";
+			}
+			{
+				key = "ctrl+shift+-";
+				command = "-workbench.action.navigateForward";
+			}
+		];
 	};
 
 	xdg.configFile = {
