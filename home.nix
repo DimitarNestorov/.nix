@@ -45,6 +45,7 @@ in {
 		shellAliases = {
 			darwin-rebuild-switch = "~/.nix/rebuild-and-switch.sh";
 			ls = "colorls";
+			code = "codium";
 		};
 
 		# https://github.com/LnL7/nix-darwin/issues/122#issuecomment-2272570087
