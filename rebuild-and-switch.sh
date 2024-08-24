@@ -1,3 +1,3 @@
-#!/run/current-system/sw/bin/fish
+#!/bin/bash
 
 darwin-rebuild switch --flake ~/.nix
