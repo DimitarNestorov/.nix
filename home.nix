@@ -2,6 +2,10 @@
 {
 	home.stateVersion = "24.05";
 
+	home.packages = with pkgs; [
+		grc
+	];
+
 	programs.home-manager.enable = true;
 
 	programs.direnv = {
@@ -39,6 +43,10 @@
 			fish_add_path --move --prepend --path ${makeBinSearchPath profiles}
 			set fish_user_paths $fish_user_paths
 		'';
+
+    plugins = [
+      { name = "grc"; src = pkgs.fishPlugins.grc.src; }
+		];
 
 		functions = {
 			fish_greeting = {
