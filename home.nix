@@ -65,6 +65,8 @@
 		};
 	};
 
+	programs.htop.enable = true;
+
 	programs.vscode = {
 		enable = true;
 		package = pkgs.vscodium;

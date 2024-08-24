@@ -32,7 +32,6 @@
 			aldente
 			vscodium
 			git
-			htop
 			imgcat
 			iterm2
 			colorls
