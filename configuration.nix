@@ -192,6 +192,20 @@
 					green = 187.0 / 255;
 					red = 187.0 / 255;
 				};
+
+				# Enables Hover Text
+				hoverTextActivationLockMode = 0;
+				hoverTextBorderColor = {};
+				hoverTextCustomBackgroundColor = {};
+				hoverTextCustomCursorColor = {};
+				hoverTextCustomFontColor = {};
+				hoverTextElementHighlightColor = {};
+				hoverTextEnabled = 1;
+				hoverTextFontStyle = 1;
+				hoverTextIsAlwaysOn = 0;
+				hoverTextIsHoveringAndVisible = 0;
+				hoverTextModifier = 1; # Changes modifier key to option
+				hoverTextShowWhenTyping = 0;
 			};
 		};
 	};
