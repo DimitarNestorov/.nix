@@ -85,6 +85,8 @@
 			AppleTemperatureUnit = "Celsius";
 			# Disables Date & Time -> 24-hour time
 			AppleICUForce24HourTime = false;
+			# Sets Appearance -> Show scroll bars to "When scrolling"
+			AppleShowScrollBars = "WhenScrolling";
 		};
 
 		# Enables Control Center -> Menu Bar Only -> Clock Options… -> Display the time with seconds
@@ -138,6 +140,16 @@
 					"en-US"
 					"bg-BG"
 				];
+			};
+
+			"com.apple.AppleMultitouchTrackpad" = {
+				# Enables Trackpad -> Point & Click -> Tap to click
+				Clicking = 1;
+				# Sets Accessibility -> Motor -> Pointer Control -> Mouse & Trackpad -> Trackpad Options -> Dragging style to "Three Finger Drag"
+				TrackpadThreeFingerDrag = 1;
+				TrackpadThreeFingerHorizSwipeGesture = 0;
+				TrackpadThreeFingerTapGesture = 0;
+				TrackpadThreeFingerVertSwipeGesture = 0;
 			};
 
 			"com.apple.HIToolbox" = {
