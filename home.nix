@@ -1,9 +1,32 @@
 { config, lib, pkgs, ... }:
-{
+let
+	iterm2-terminal-integration = pkgs.stdenv.mkDerivation {
+		pname = "iterm2-terminal-integration";
+		version = "0.0.1";
+
+		src = pkgs.fetchurl {
+			url = "https://iterm2.com/shell_integration/fish";
+			sha256 = "sha256-29XvF/8KGd63NOAqWPoxODPQAMA8gNr+MIHFEqcKov4=";
+		};
+
+		unpackPhase = ''
+			for srcFile in $src; do
+				cp $srcFile $(stripHash $srcFile)
+			done
+		'';
+
+		installPhase = ''
+			outDir=$out/bin
+			mkdir -p $outDir
+			cp $src $outDir/iterm2_shell_integration.fish
+		'';
+	};
+in {
 	home.stateVersion = "24.05";
 
 	home.packages = with pkgs; [
 		grc
+		iterm2-terminal-integration
 	];
 
 	programs.home-manager.enable = true;
@@ -42,6 +65,8 @@
 			# Fix path that was re-ordered by Apple's path_helper
 			fish_add_path --move --prepend --path ${makeBinSearchPath profiles}
 			set fish_user_paths $fish_user_paths
+
+			source ${iterm2-terminal-integration}/bin/iterm2_shell_integration.fish
 		'';
 
     plugins = [
