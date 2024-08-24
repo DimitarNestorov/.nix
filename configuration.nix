@@ -8,13 +8,13 @@
 {
 	nix.settings.experimental-features = "nix-command flakes";
 
-  nixpkgs.overlays = [
-    (self: super: {
-      aldente = pkgs-aldente-bartender.aldente;
-      bartender = pkgs-aldente-bartender.bartender;
+	nixpkgs.overlays = [
+		(self: super: {
+			aldente = pkgs-aldente-bartender.aldente;
+			bartender = pkgs-aldente-bartender.bartender;
 			iterm2 = pkgs-iterm2.iterm2;
-    })
-  ];
+		})
+	];
 
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
 		"Xcode.app"
@@ -170,6 +170,28 @@
 		};
 
 		CustomUserPreferences = {
+			NSGlobalDomain = {
+				AppleLanguages = [
+					"en-US"
+					"bg-BG"
+				];
+			};
+
+			"com.apple.HIToolbox" = {
+				AppleEnabledInputSources = [
+					{
+						InputSourceKind = "Keyboard Layout";
+						"KeyboardLayout ID" = 0;
+						"KeyboardLayout Name" = "U.S.";
+					}
+					{
+						InputSourceKind = "Keyboard Layout";
+						"KeyboardLayout ID" = 19529;
+						"KeyboardLayout Name" = "Bulgarian - Phonetic";
+					}
+				];
+			};
+
 			"com.apple.dock" = {
 				springboard-columns = 10;
 				springboard-rows = 5;
