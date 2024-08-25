@@ -249,6 +249,46 @@
 				# Disables Automatic Updates
 				AutoUpdate = false;
 			};
+
+			"com.apple.mail" = {
+				NSFixedPitchFont = "JetBrainsMonoNF-Regular";
+				NSFixedPitchFontSize = 14;
+				NSFont = "Helvetica";
+				NSFontSize = 14;
+				"NSToolbar Configuration MainWindow" = {
+					"TB Default Item Identifiers" = [
+						"toggleMessageListFilter:"
+						"SeparatorToolbarItem"
+						"checkNewMail:"
+						"showComposeWindow:"
+						"NSToolbarFlexibleSpaceItem"
+						"archive_delete_junk"
+						"reply_replyAll_forward"
+						"FlaggedStatus"
+						"muteFromToolbar:"
+						"moveMessagesFromToolbar:"
+						"Search"
+					];
+					"TB Display Mode" = 2;
+					"TB Icon Size Mode" = 1;
+					"TB Is Shown" = 1;
+					"TB Item Identifiers" = [
+						"toggleMessageListFilter:"
+						"SeparatorToolbarItem"
+						"checkNewMail:"
+						"showComposeWindow:"
+						"NSToolbarFlexibleSpaceItem"
+						"archive_delete_junk"
+						"reply_replyAll_forward"
+						"FlaggedStatus"
+						"muteFromToolbar:"
+						"moveMessagesFromToolbarExpanded:"
+						"NSToolbarSpaceItem"
+						"Search"
+					];
+					"TB Size Mode" = 1;
+				};
+			};
 		};
 	};
 
