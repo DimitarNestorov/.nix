@@ -243,6 +243,12 @@
 			"com.apple.Safari.SandboxBroker" = {
 				ShowDevelopMenu = 1;
 			};
+
+			# App Store
+			"com.apple.commerce" = {
+				# Disables Automatic Updates
+				AutoUpdate = false;
+			};
 		};
 	};
 
