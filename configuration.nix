@@ -1,7 +1,6 @@
 {
 	pkgs,
-	pkgs-aldente-bartender,
-	pkgs-iterm2,
+	pkgs-aldente-bartender-iterm2,
 	lib,
 	...
 }:
@@ -10,9 +9,9 @@
 
 	nixpkgs.overlays = [
 		(self: super: {
-			aldente = pkgs-aldente-bartender.aldente;
-			bartender = pkgs-aldente-bartender.bartender;
-			iterm2 = pkgs-iterm2.iterm2;
+			aldente = pkgs-aldente-bartender-iterm2.aldente;
+			bartender = pkgs-aldente-bartender-iterm2.bartender;
+			iterm2 = pkgs-aldente-bartender-iterm2.iterm2;
 		})
 	];
 
