@@ -18,6 +18,7 @@
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
 		"Xcode.app"
 		"google-chrome"
+		"keka"
 	];
 
 	environment = {
@@ -27,6 +28,7 @@
 			# TODO: _1password-gui
 			darwin.xcode_15_1
 			google-chrome
+			keka
 			bartender
 			aldente
 			vscodium
