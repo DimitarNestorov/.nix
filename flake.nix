@@ -3,6 +3,7 @@
 
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
+		nixpkgs-tailscale.url = "github:nixos/nixpkgs/eb19b36ec45caf14e9fe5026d3970d89c03ced69";
 		nixpkgs-aldente-bartender-iterm2.url = "github:nixos/nixpkgs/f6feef0cfa27d008111025be1359cd6b2db02b50";
 		darwin.url = "github:lnl7/nix-darwin/master";
 		darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -16,6 +17,7 @@
 		self,
 		darwin,
 		nixpkgs,
+		nixpkgs-tailscale,
 		nixpkgs-aldente-bartender-iterm2,
 		nix-index-database,
 		home-manager,
@@ -38,6 +40,8 @@
 			system = systemArg;
 			modules = darwinModules;
 			specialArgs = {
+				pkgs-tailscale = import nixpkgs-tailscale { inherit system; };
+
 				pkgs-aldente-bartender-iterm2 = import nixpkgs-aldente-bartender-iterm2 {
 					inherit system;
 

@@ -1,5 +1,6 @@
 {
 	pkgs,
+	pkgs-tailscale,
 	pkgs-aldente-bartender-iterm2,
 	lib,
 	...
@@ -9,6 +10,7 @@
 
 	nixpkgs.overlays = [
 		(self: super: {
+			tailscale = pkgs-tailscale.tailscale;
 			aldente = pkgs-aldente-bartender-iterm2.aldente;
 			bartender = pkgs-aldente-bartender-iterm2.bartender;
 			iterm2 = pkgs-aldente-bartender-iterm2.iterm2;
