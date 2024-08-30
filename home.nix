@@ -86,6 +86,7 @@ in {
 			mhutchie.git-graph
 			mkhl.direnv
 			esbenp.prettier-vscode
+			mikestead.dotenv
 		];
 		userSettings = {
 			"direnv.path.executable" = "/etc/profiles/per-user/dimitar/bin/direnv";
