@@ -1,6 +1,7 @@
 {
 	pkgs,
 	pkgs-tailscale,
+	pkgs-bartender,
 	pkgs-aldente-bartender-iterm2,
 	lib,
 	...
@@ -12,7 +13,7 @@
 		(self: super: {
 			tailscale = pkgs-tailscale.tailscale;
 			aldente = pkgs-aldente-bartender-iterm2.aldente;
-			bartender = pkgs-aldente-bartender-iterm2.bartender;
+			bartender = pkgs-bartender.bartender;
 			iterm2 = pkgs-aldente-bartender-iterm2.iterm2;
 		})
 	];
