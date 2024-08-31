@@ -119,9 +119,6 @@
 				"/System/Applications/Utilities/Screen Sharing.app"
 				"/System/Applications/Launchpad.app"
 			];
-			persistent-others = [
-				"/Users/dimitar/Downloads"
-			];
 
 			# Hot Corners
 			wvous-tl-corner = 1; # Disabled
@@ -178,6 +175,21 @@
 			"com.apple.dock" = {
 				springboard-columns = 10;
 				springboard-rows = 5;
+
+				persistent-others = [
+					{
+						tile-data = {
+							arrangement = 2; # Date Added
+							displayas = 0; # Stack
+							showas = 1; # Fan
+							file-data = {
+								_CFURLString = "file:///Users/dimitar/Downloads/";
+								_CFURLStringType = 15;
+							};
+						};
+						tile-type = "directory-tile";
+					}
+				];
 			};
 
 			"com.apple.universalaccess" = {
