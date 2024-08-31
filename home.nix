@@ -30,6 +30,7 @@ in {
 		grc
 		iterm2-terminal-integration
 		terminal-notifier
+		nano
 	];
 
 	programs.home-manager.enable = true;
@@ -72,6 +73,7 @@ in {
 		userName = "Dimitar Nestorov";
 		userEmail = "8790386+dimitarnestorov@users.noreply.github.com";
 		extraConfig = {
+			core.editor = "/etc/profiles/per-user/dimitar/bin/nano";
 			push.autoSetupRemote = true;
 		};
 	};
