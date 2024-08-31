@@ -3,6 +3,7 @@
 
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
+		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 		nixpkgs-tailscale.url = "github:nixos/nixpkgs/eb19b36ec45caf14e9fe5026d3970d89c03ced69";
 		nixpkgs-aldente-bartender-iterm2.url = "github:nixos/nixpkgs/4088596b40e68be2d75fb9a4a9f55d4a20034637";
 		darwin.url = "github:lnl7/nix-darwin/master";
@@ -17,6 +18,7 @@
 		self,
 		darwin,
 		nixpkgs,
+		nixpkgs-unstable,
 		nixpkgs-tailscale,
 		nixpkgs-aldente-bartender-iterm2,
 		nix-index-database,
@@ -31,6 +33,11 @@
 				home-manager.useGlobalPkgs = true;
 				home-manager.useUserPackages = true;
 				home-manager.users.dimitar = import ./home.nix;
+
+				nix.registry = {
+					nixpkgs.flake = nixpkgs;
+					nixpkgs-unstable.flake = nixpkgs-unstable;
+				};
 			}
 
 			nix-index-database.darwinModules.nix-index
@@ -53,8 +60,10 @@
 			};
 		};
 	in {
-		darwinConfigurations."adonis" = configuration "aarch64-darwin";
-		darwinConfigurations."jason" = configuration "aarch64-darwin";
-		darwinConfigurations."helenus" = configuration "x86_64-darwin";
+		darwinConfigurations = {
+			adonis = configuration "aarch64-darwin";
+			jason = configuration "aarch64-darwin";
+			helenus = configuration "x86_64-darwin";
+		};
 	};
 }
