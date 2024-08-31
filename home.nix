@@ -125,7 +125,7 @@ in {
 					"args" = ["-l"];
 				};
 				"fish" = {
-					"path" = "/run/current-system/sw/bin/fish";
+					"path" = "/etc/profiles/per-user/dimitar/bin/fish";
 					"args" = ["-l"];
 				};
 			};

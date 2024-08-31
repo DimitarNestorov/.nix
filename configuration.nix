@@ -40,7 +40,6 @@
 			iterm2
 			colorls
 			iina
-			fish
 			tailscale
 		];
 	};
