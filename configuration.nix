@@ -13,7 +13,7 @@
 		(self: super: {
 			tailscale = pkgs-tailscale.tailscale;
 			aldente = pkgs-aldente-bartender-iterm2.aldente;
-			bartender = pkgs-bartender.bartender;
+			bartender = pkgs-aldente-bartender-iterm2.bartender;
 			iterm2 = pkgs-aldente-bartender-iterm2.iterm2;
 		})
 	];
