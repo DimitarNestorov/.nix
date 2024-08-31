@@ -81,12 +81,14 @@ in {
 	programs.vscode = {
 		enable = true;
 		package = pkgs.vscodium;
+		mutableExtensionsDir = false;
 		extensions = with pkgs.vscode-extensions; [
 			jnoortheen.nix-ide
 			mhutchie.git-graph
 			mkhl.direnv
 			esbenp.prettier-vscode
 			mikestead.dotenv
+			vscode-icons-team.vscode-icons
 		];
 		userSettings = {
 			"direnv.path.executable" = "/etc/profiles/per-user/dimitar/bin/direnv";
@@ -126,6 +128,7 @@ in {
 				};
 			};
 			"update.mode" = "none";
+			"workbench.iconTheme" = "vscode-icons";
 		};
 		keybindings = [
 			{
