@@ -41,6 +41,7 @@
 			colorls
 			iina
 			tailscale
+			localsend
 		];
 	};
 
