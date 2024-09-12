@@ -94,7 +94,23 @@
         "type": "github"
       }
     },
-    "nixpkgs-bartender-iterm2": {
+    "nixpkgs-bartender": {
+      "locked": {
+        "lastModified": 1725859513,
+        "narHash": "sha256-Z0QaKMbeJ/VNeGXddk0Qpzv39dPgyWfErqQf3dpEMwk=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "cd76dbde7046b65b9acc83f059f651a2efb46fa6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "cd76dbde7046b65b9acc83f059f651a2efb46fa6",
+        "type": "github"
+      }
+    },
+    "nixpkgs-iterm2": {
       "locked": {
         "lastModified": 1725111560,
         "narHash": "sha256-+wyzGtWE0x+WKLUWgMzSG3c1S0X2PmfK2WZeBNI7PlM=",
@@ -149,7 +165,8 @@
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "nixpkgs-aldente": "nixpkgs-aldente",
-        "nixpkgs-bartender-iterm2": "nixpkgs-bartender-iterm2",
+        "nixpkgs-bartender": "nixpkgs-bartender",
+        "nixpkgs-iterm2": "nixpkgs-iterm2",
         "nixpkgs-tailscale": "nixpkgs-tailscale",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }
