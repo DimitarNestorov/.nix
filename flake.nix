@@ -5,7 +5,8 @@
 		nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 		nixpkgs-tailscale.url = "github:nixos/nixpkgs/eb19b36ec45caf14e9fe5026d3970d89c03ced69";
-		nixpkgs-aldente-bartender-iterm2.url = "github:nixos/nixpkgs/4088596b40e68be2d75fb9a4a9f55d4a20034637";
+		nixpkgs-aldente.url = "github:nixos/nixpkgs/619551a371d2cc1cb7288e65a11c943c7e5a55fc";
+		nixpkgs-bartender-iterm2.url = "github:nixos/nixpkgs/4088596b40e68be2d75fb9a4a9f55d4a20034637";
 		darwin.url = "github:lnl7/nix-darwin/master";
 		darwin.inputs.nixpkgs.follows = "nixpkgs";
 		nix-index-database.url = "github:nix-community/nix-index-database";
@@ -20,7 +21,8 @@
 		nixpkgs,
 		nixpkgs-unstable,
 		nixpkgs-tailscale,
-		nixpkgs-aldente-bartender-iterm2,
+		nixpkgs-aldente,
+		nixpkgs-bartender-iterm2,
 		nix-index-database,
 		home-manager,
 		...
@@ -49,10 +51,18 @@
 			specialArgs = {
 				pkgs-tailscale = import nixpkgs-tailscale { inherit system; };
 
-				pkgs-aldente-bartender-iterm2 = import nixpkgs-aldente-bartender-iterm2 {
+				pkgs-aldente = import nixpkgs-aldente {
 					inherit system;
 
- 					config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs-aldente-bartender-iterm2.lib.getName pkg) [
+ 					config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs-aldente.lib.getName pkg) [
+						"aldente"
+					];
+				};
+
+				pkgs-bartender-iterm2 = import nixpkgs-bartender-iterm2 {
+					inherit system;
+
+ 					config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs-bartender-iterm2.lib.getName pkg) [
 						"aldente"
 						"bartender"
 					];
