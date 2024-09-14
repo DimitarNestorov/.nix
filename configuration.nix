@@ -69,6 +69,12 @@
 		home = "/Users/dimitar";
 	};
 
+	home-manager = {
+		useGlobalPkgs = true;
+		useUserPackages = true;
+		users.dimitar = import ./home.nix;
+	};
+
 	system.defaults = {
 		NSGlobalDomain = {
 			# Enables Keyboard -> Keyboard navigation

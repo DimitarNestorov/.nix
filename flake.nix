@@ -33,20 +33,14 @@
 	} @ inputs: let
 		darwinModules = [
 			./configuration.nix
-
 			home-manager.darwinModules.home-manager
+			nix-index-database.darwinModules.nix-index
 			{
-				home-manager.useGlobalPkgs = true;
-				home-manager.useUserPackages = true;
-				home-manager.users.dimitar = import ./home.nix;
-
 				nix.registry = {
 					nixpkgs.flake = nixpkgs;
 					nixpkgs-unstable.flake = nixpkgs-unstable;
 				};
 			}
-
-			nix-index-database.darwinModules.nix-index
 		];
 
 		configuration = systemArg: darwin.lib.darwinSystem rec {
