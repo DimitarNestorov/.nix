@@ -1,26 +1,19 @@
-#!/bin/zsh
+#!/bin/bash
 
-# Go to home directory
-cd
+set -e
 
-# Clone configuration
-git clone https://github.com/dimitarnestorov/nix.git .nix
+# Install Nix
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 
-# Go to configuration folder
-cd .nix
-
-# Install nix
-sh <(curl -L https://nixos.org/nix/install)
+/nix/var/nix/profiles/default/bin/nix --extra-experimental-features "nix-command flakes" run nixpkgs#git clone https://github.com/DimitarNestorov/.nix.git ~/.nix
 
 # Delete nix.conf since it's managed by nix-darwin
-sudo rm /etc/nix/nix.conf
+sudo mv /etc/nix/nix.conf /etc/nix/nix.conf.before-nix-darwin
 
 # Hide Nix Store from root
 sudo chflags hidden /nix
 
-# Setup run symlink
-printf 'run\tprivate/var/run\n' | sudo tee -a /etc/synthetic.conf
-/System/Library/Filesystems/apfs.fs/Contents/Resources/apfs.util -t
+# TODO: This command is going to fail, let's make a pause here to let me download Xcode and add it to the store, require me to press enter to continue
+/nix/var/nix/profiles/default/bin/nix --extra-experimental-features "nix-command flakes" run nix-darwin -- switch --flake ~/.nix
 
-nix build .\#darwinConfigurations.${HOST%%.*}.system --experimental-features "nix-command flakes"
-./result/sw/bin/darwin-rebuild switch --flake .
+sudo chsh -s /etc/profiles/per-user/dimitar/bin/fish dimitar
