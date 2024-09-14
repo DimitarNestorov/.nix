@@ -7,7 +7,7 @@
 		nixpkgs-tailscale.url = "github:nixos/nixpkgs/eb19b36ec45caf14e9fe5026d3970d89c03ced69";
 		nixpkgs-aldente.url = "github:nixos/nixpkgs/619551a371d2cc1cb7288e65a11c943c7e5a55fc";
 		nixpkgs-bartender.url = "github:nixos/nixpkgs/cd76dbde7046b65b9acc83f059f651a2efb46fa6";
-		nixpkgs-vncviewer.url = "github:nixos/nixpkgs/e4da2fc8367c9017d2c8f509bee83241c0c3770f";
+		nixpkgs-vncviewer.url = "github:nixos/nixpkgs/43f616a7cc2ee6c755c2860b0e974c255c911a13";
 		nixpkgs-iterm2.url = "github:nixos/nixpkgs/4088596b40e68be2d75fb9a4a9f55d4a20034637";
 		darwin.url = "github:lnl7/nix-darwin/master";
 		darwin.inputs.nixpkgs.follows = "nixpkgs";
