@@ -158,6 +158,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-vncviewer": {
+      "locked": {
+        "lastModified": 1720020130,
+        "narHash": "sha256-a2zosTEt0rnROCOxCA/d4MKr2ijqbJDsob78B91O4RM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "e4da2fc8367c9017d2c8f509bee83241c0c3770f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "e4da2fc8367c9017d2c8f509bee83241c0c3770f",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "darwin": "darwin",
@@ -168,7 +184,8 @@
         "nixpkgs-bartender": "nixpkgs-bartender",
         "nixpkgs-iterm2": "nixpkgs-iterm2",
         "nixpkgs-tailscale": "nixpkgs-tailscale",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "nixpkgs-vncviewer": "nixpkgs-vncviewer"
       }
     }
   },

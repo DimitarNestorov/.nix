@@ -3,6 +3,7 @@
 	pkgs-tailscale,
 	pkgs-bartender,
 	pkgs-aldente,
+	pkgs-vncviewer,
 	pkgs-iterm2,
 	lib,
 	...
@@ -15,6 +16,7 @@
 			tailscale = pkgs-tailscale.tailscale;
 			aldente = pkgs-aldente.aldente;
 			bartender = pkgs-bartender.bartender;
+			realvnc-vnc-viewer = pkgs-vncviewer.realvnc-vnc-viewer;
 			iterm2 = pkgs-iterm2.iterm2;
 		})
 	];
@@ -31,6 +33,7 @@
 		systemPackages = with pkgs; [
 			# TODO: _1password-gui
 			darwin.xcode_15_1
+			realvnc-vnc-viewer
 			google-chrome
 			keka
 			bartender
