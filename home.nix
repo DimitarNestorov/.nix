@@ -94,6 +94,7 @@ in {
 		];
 		userSettings = {
 			"direnv.path.executable" = "/etc/profiles/per-user/dimitar/bin/direnv";
+			"editor.accessibilitySupport" = "off";
 			"editor.defaultFormatter" = "esbenp.prettier-vscode";
 			"editor.fontFamily" = "JetBrainsMono Nerd Font";
 			"editor.fontLigatures" = true;
