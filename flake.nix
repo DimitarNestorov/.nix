@@ -5,7 +5,7 @@
 		nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 		nixpkgs-tailscale.url = "github:nixos/nixpkgs/eb19b36ec45caf14e9fe5026d3970d89c03ced69";
-		nixpkgs-aldente.url = "github:nixos/nixpkgs/619551a371d2cc1cb7288e65a11c943c7e5a55fc";
+		nixpkgs-aldente.url = "github:nixos/nixpkgs/61348a945b0d5b3ac027dc0b5ed0283ff5050ac8";
 		nixpkgs-bartender.url = "github:nixos/nixpkgs/ac7e26a5db2f21cee071b1194b6204056bdada9d";
 		nixpkgs-vncviewer.url = "github:nixos/nixpkgs/43f616a7cc2ee6c755c2860b0e974c255c911a13";
 		nixpkgs-iterm2.url = "github:nixos/nixpkgs/4088596b40e68be2d75fb9a4a9f55d4a20034637";

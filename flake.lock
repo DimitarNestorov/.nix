@@ -80,17 +80,17 @@
     },
     "nixpkgs-aldente": {
       "locked": {
-        "lastModified": 1725565116,
-        "narHash": "sha256-iHLqkmTvYfL3shWkkyITUAqzfIL6+B87vfqGFll81VU=",
+        "lastModified": 1726924507,
+        "narHash": "sha256-A6UPadczyxkupeYd4dM/r1g7PjZt9jvCR1+cIiMikAs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "619551a371d2cc1cb7288e65a11c943c7e5a55fc",
+        "rev": "61348a945b0d5b3ac027dc0b5ed0283ff5050ac8",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "619551a371d2cc1cb7288e65a11c943c7e5a55fc",
+        "rev": "61348a945b0d5b3ac027dc0b5ed0283ff5050ac8",
         "type": "github"
       }
     },
