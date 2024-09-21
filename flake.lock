@@ -174,6 +174,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-xcode": {
+      "locked": {
+        "lastModified": 1726822905,
+        "narHash": "sha256-3zPa6tnxfPJX4zpnFui1N/UYdWCdPOlY3uUvNkfxI6o=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "28f2f2a4f9723cf730e427952922755c2d552dfc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "28f2f2a4f9723cf730e427952922755c2d552dfc",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "darwin": "darwin",
@@ -185,7 +201,8 @@
         "nixpkgs-iterm2": "nixpkgs-iterm2",
         "nixpkgs-tailscale": "nixpkgs-tailscale",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "nixpkgs-vncviewer": "nixpkgs-vncviewer"
+        "nixpkgs-vncviewer": "nixpkgs-vncviewer",
+        "nixpkgs-xcode": "nixpkgs-xcode"
       }
     }
   },

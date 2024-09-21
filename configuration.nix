@@ -5,14 +5,17 @@
 	pkgs-aldente,
 	pkgs-vncviewer,
 	pkgs-iterm2,
+	pkgs-xcode,
 	lib,
 	...
-}:
-{
+}: let
+	xcode = pkgs-xcode.darwin.xcode_16;
+in {
 	nix.settings.experimental-features = "nix-command flakes";
 
 	nixpkgs.overlays = [
 		(self: super: {
+			inherit xcode;
 			tailscale = pkgs-tailscale.tailscale;
 			aldente = pkgs-aldente.aldente;
 			bartender = pkgs-bartender.bartender;
@@ -22,7 +25,6 @@
 	];
 
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-		"Xcode.app"
 		"google-chrome"
 		"keka"
 	];
@@ -32,7 +34,7 @@
 		# $ nix-env -qaP | grep wget
 		systemPackages = with pkgs; [
 			# TODO: _1password-gui
-			darwin.xcode_15_1
+			xcode
 			realvnc-vnc-viewer
 			google-chrome
 			keka
@@ -123,8 +125,8 @@
 				"/System/Applications/Music.app"
 				"/System/Cryptexes/App/System/Applications/Safari.app"
 				"${pkgs.vscodium}/Applications/VSCodium.app"
-				"${pkgs.darwin.xcode_15_1}"
-				"${pkgs.darwin.xcode_15_1}/Contents/Developer/Applications/Simulator.app"
+				"${xcode}"
+				"${xcode}/Contents/Developer/Applications/Simulator.app"
 				"${pkgs.iterm2}/Applications/iTerm2.app"
 				"${pkgs.google-chrome}/Applications/Google Chrome.app"
 				"/System/Applications/Utilities/Screen Sharing.app"
