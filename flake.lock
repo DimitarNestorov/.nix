@@ -126,6 +126,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-sloth": {
+      "locked": {
+        "lastModified": 1726927768,
+        "narHash": "sha256-OuYd+v6oyZXPi+z7FcK4IjuN+LumU2vvVDSPDyqFrn8=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "2aee66095ca9cd6dfa78ca18ce79a1a5599e828c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "2aee66095ca9cd6dfa78ca18ce79a1a5599e828c",
+        "type": "github"
+      }
+    },
     "nixpkgs-tailscale": {
       "locked": {
         "lastModified": 1724353802,
@@ -199,6 +215,7 @@
         "nixpkgs-aldente": "nixpkgs-aldente",
         "nixpkgs-bartender": "nixpkgs-bartender",
         "nixpkgs-iterm2": "nixpkgs-iterm2",
+        "nixpkgs-sloth": "nixpkgs-sloth",
         "nixpkgs-tailscale": "nixpkgs-tailscale",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixpkgs-vncviewer": "nixpkgs-vncviewer",

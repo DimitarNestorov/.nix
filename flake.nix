@@ -10,6 +10,7 @@
 		nixpkgs-vncviewer.url = "github:nixos/nixpkgs/43f616a7cc2ee6c755c2860b0e974c255c911a13";
 		nixpkgs-iterm2.url = "github:nixos/nixpkgs/4088596b40e68be2d75fb9a4a9f55d4a20034637";
 		nixpkgs-xcode.url = "github:nixos/nixpkgs/28f2f2a4f9723cf730e427952922755c2d552dfc";
+		nixpkgs-sloth.url = "github:nixos/nixpkgs/2aee66095ca9cd6dfa78ca18ce79a1a5599e828c";
 		darwin.url = "github:lnl7/nix-darwin/master";
 		darwin.inputs.nixpkgs.follows = "nixpkgs";
 		nix-index-database.url = "github:nix-community/nix-index-database";
@@ -29,6 +30,7 @@
 		nixpkgs-vncviewer,
 		nixpkgs-iterm2,
 		nixpkgs-xcode,
+		nixpkgs-sloth,
 		nix-index-database,
 		home-manager,
 		...
@@ -84,6 +86,8 @@
 						"Xcode.app"
 					];
 				};
+
+				pkgs-sloth = import nixpkgs-sloth { inherit system; };
 			};
 		};
 	in {

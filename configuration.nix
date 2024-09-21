@@ -6,6 +6,7 @@
 	pkgs-vncviewer,
 	pkgs-iterm2,
 	pkgs-xcode,
+	pkgs-sloth,
 	lib,
 	...
 }: let
@@ -21,6 +22,7 @@ in {
 			bartender = pkgs-bartender.bartender;
 			realvnc-vnc-viewer = pkgs-vncviewer.realvnc-vnc-viewer;
 			iterm2 = pkgs-iterm2.iterm2;
+			sloth-app = pkgs-sloth.sloth-app;
 		})
 	];
 
@@ -48,6 +50,7 @@ in {
 			iina
 			tailscale
 			localsend
+			sloth-app
 		];
 	};
 
