@@ -96,17 +96,17 @@
     },
     "nixpkgs-bartender": {
       "locked": {
-        "lastModified": 1726724162,
-        "narHash": "sha256-2FM8m08EGBkrEYRHCFreyV+A4NiyYQnXXKT3JQbkhfI=",
-        "owner": "nixos",
+        "lastModified": 1727371484,
+        "narHash": "sha256-HTiCXIBg4p8P9Cr/0NKYlEFBRKF1imRbccT1GIQISjM=",
+        "owner": "DimitarNestorov",
         "repo": "nixpkgs",
-        "rev": "ac7e26a5db2f21cee071b1194b6204056bdada9d",
+        "rev": "a548595bb3a3822fd27f73aa7c8be79ea762303b",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
+        "owner": "DimitarNestorov",
         "repo": "nixpkgs",
-        "rev": "ac7e26a5db2f21cee071b1194b6204056bdada9d",
+        "rev": "a548595bb3a3822fd27f73aa7c8be79ea762303b",
         "type": "github"
       }
     },
