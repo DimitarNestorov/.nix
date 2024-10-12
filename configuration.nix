@@ -18,11 +18,8 @@ in {
 		systemPackages = with pkgs; [
 			# TODO: _1password-gui
 			xcodePkg
-			realvnc-vnc-viewer
 			google-chrome
 			keka
-			bartender
-			aldente
 			vscodium
 			git
 			imgcat
@@ -32,8 +29,12 @@ in {
 			tailscale
 			localsend
 			sloth-app
+		] ++ (if type == "work" then [] else [
+			realvnc-vnc-viewer
+			bartender
+			aldente
 			dbeaver-bin
-		];
+		]);
 	};
 
 	fonts = {
