@@ -2,7 +2,10 @@
 let
 	xcodePkg = pkgs-xcode.darwin.xcode_16;
 in {
-	nix.settings.experimental-features = "nix-command flakes";
+	nix.settings = {
+		experimental-features = "nix-command flakes";
+		trusted-users = ["root" "dimitar"];
+	};
 
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
 		"google-chrome"
