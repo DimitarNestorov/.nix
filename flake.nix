@@ -25,14 +25,6 @@
 		darwin,
 		nixpkgs,
 		nixpkgs-unstable,
-		nixpkgs-tailscale,
-		nixpkgs-aldente,
-		nixpkgs-bartender,
-		nixpkgs-vncviewer,
-		nixpkgs-iterm2,
-		nixpkgs-xcode,
-		nixpkgs-sloth,
-		nixpkgs-dbeaver,
 		nix-index-database,
 		home-manager,
 		...
@@ -49,49 +41,55 @@
 			}
 		];
 
-		configuration = systemArg: darwin.lib.darwinSystem rec {
-			system = systemArg;
-			modules = darwinModules;
-			specialArgs = {
-				pkgs-tailscale = import nixpkgs-tailscale { inherit system; };
-
-				pkgs-aldente = import nixpkgs-aldente {
-					inherit system;
-
- 					config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs-aldente.lib.getName pkg) [
-						"aldente"
-					];
-				};
-
-				pkgs-bartender = import nixpkgs-bartender {
-					inherit system;
-
- 					config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs-bartender.lib.getName pkg) [
-						"bartender"
-					];
-				};
-
-				pkgs-vncviewer = import nixpkgs-vncviewer {
-					inherit system;
-
- 					config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs-vncviewer.lib.getName pkg) [
-						"realvnc-vnc-viewer"
-					];
-				};
-
-				pkgs-iterm2 = import nixpkgs-iterm2 { inherit system; };
-
-				pkgs-xcode = import nixpkgs-xcode {
-					inherit system;
-
- 					config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs-xcode.lib.getName pkg) [
-						"Xcode.app"
-					];
-				};
-
-				pkgs-sloth = import nixpkgs-sloth { inherit system; };
-				pkgs-dbeaver = import nixpkgs-dbeaver { inherit system; };
+		configuration = system: let
+			pkgs-tailscale = import inputs.nixpkgs-tailscale { inherit system; };
+			pkgs-iterm2 = import inputs.nixpkgs-iterm2 { inherit system; };
+			pkgs-sloth = import inputs.nixpkgs-sloth { inherit system; };
+			pkgs-dbeaver = import inputs.nixpkgs-dbeaver { inherit system; };
+			pkgs-aldente = import inputs.nixpkgs-aldente {
+				inherit system;
+				config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+					"aldente"
+				];
 			};
+			pkgs-bartender = import inputs.nixpkgs-bartender {
+				inherit system;
+				config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+					"bartender"
+				];
+			};
+			pkgs-vncviewer = import inputs.nixpkgs-vncviewer {
+				inherit system;
+				config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+					"realvnc-vnc-viewer"
+				];
+			};
+			pkgs-xcode = import inputs.nixpkgs-xcode {
+				inherit system;
+				config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+					"Xcode.app"
+				];
+			};
+		in darwin.lib.darwinSystem {
+			inherit system;
+			specialArgs = {
+				inherit pkgs-xcode;
+			};
+			modules = darwinModules ++ [
+				{
+					nixpkgs.overlays = [
+						(self: super: {
+							tailscale = pkgs-tailscale.tailscale;
+							aldente = pkgs-aldente.aldente;
+							bartender = pkgs-bartender.bartender;
+							realvnc-vnc-viewer = pkgs-vncviewer.realvnc-vnc-viewer;
+							iterm2 = pkgs-iterm2.iterm2;
+							sloth-app = pkgs-sloth.sloth-app;
+							dbeaver-bin = pkgs-dbeaver.dbeaver-bin;
+						})
+					];
+				}
+			];
 		};
 	in {
 		darwinConfigurations = {
