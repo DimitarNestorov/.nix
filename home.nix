@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, type ? "personal", ... }:
 let
 	iterm2-terminal-integration = pkgs.stdenv.mkDerivation {
 		pname = "iterm2-terminal-integration";
@@ -72,7 +72,9 @@ in {
 	programs.git = {
 		enable = true;
 		userName = "Dimitar Nestorov";
-		userEmail = "8790386+dimitarnestorov@users.noreply.github.com";
+		userEmail = if type == "work"
+			then "dimitar.nestorov@callstack.com"
+			else "8790386+dimitarnestorov@users.noreply.github.com";
 		extraConfig = {
 			core.editor = "/etc/profiles/per-user/dimitar/bin/nano";
 			push.autoSetupRemote = true;

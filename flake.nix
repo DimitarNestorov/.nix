@@ -41,7 +41,7 @@
 			}
 		];
 
-		configuration = system: let
+		configuration = { system, type ? "personal" }: let
 			pkgs-tailscale = import inputs.nixpkgs-tailscale { inherit system; };
 			pkgs-iterm2 = import inputs.nixpkgs-iterm2 { inherit system; };
 			pkgs-sloth = import inputs.nixpkgs-sloth { inherit system; };
@@ -73,6 +73,7 @@
 		in darwin.lib.darwinSystem {
 			inherit system;
 			specialArgs = {
+				inherit type;
 				inherit pkgs-xcode;
 			};
 			modules = darwinModules ++ [
@@ -93,9 +94,10 @@
 		};
 	in {
 		darwinConfigurations = {
-			adonis = configuration "aarch64-darwin";
-			jason = configuration "aarch64-darwin";
-			helenus = configuration "x86_64-darwin";
+			adonis = configuration { system = "aarch64-darwin"; };
+			jason = configuration { system = "aarch64-darwin"; };
+			helenus = configuration { system = "x86_64-darwin"; };
+			work = configuration { system = "aarch64-darwin"; type = "work"; };
 		};
 	};
 }
