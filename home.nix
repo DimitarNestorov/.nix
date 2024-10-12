@@ -31,6 +31,7 @@ in {
 		iterm2-terminal-integration
 		terminal-notifier
 		nano
+		devenv
 	];
 
 	programs.home-manager.enable = true;
