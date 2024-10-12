@@ -7,6 +7,7 @@
 	pkgs-iterm2,
 	pkgs-xcode,
 	pkgs-sloth,
+	pkgs-dbeaver,
 	lib,
 	...
 }: let
@@ -23,6 +24,7 @@ in {
 			realvnc-vnc-viewer = pkgs-vncviewer.realvnc-vnc-viewer;
 			iterm2 = pkgs-iterm2.iterm2;
 			sloth-app = pkgs-sloth.sloth-app;
+			dbeaver-bin = pkgs-dbeaver.dbeaver-bin;
 		})
 	];
 
@@ -51,6 +53,7 @@ in {
 			tailscale
 			localsend
 			sloth-app
+			dbeaver-bin
 		];
 	};
 

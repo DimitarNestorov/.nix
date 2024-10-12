@@ -11,6 +11,7 @@
 		nixpkgs-iterm2.url = "github:nixos/nixpkgs/4088596b40e68be2d75fb9a4a9f55d4a20034637";
 		nixpkgs-xcode.url = "github:nixos/nixpkgs/28f2f2a4f9723cf730e427952922755c2d552dfc";
 		nixpkgs-sloth.url = "github:nixos/nixpkgs/2aee66095ca9cd6dfa78ca18ce79a1a5599e828c";
+		nixpkgs-dbeaver.url = "github:nixos/nixpkgs/3c5a0228d9b4e6e233c22047d61ac6bd55e81661";
 		darwin.url = "github:lnl7/nix-darwin/master";
 		darwin.inputs.nixpkgs.follows = "nixpkgs";
 		nix-index-database.url = "github:nix-community/nix-index-database";
@@ -31,6 +32,7 @@
 		nixpkgs-iterm2,
 		nixpkgs-xcode,
 		nixpkgs-sloth,
+		nixpkgs-dbeaver,
 		nix-index-database,
 		home-manager,
 		...
@@ -88,6 +90,7 @@
 				};
 
 				pkgs-sloth = import nixpkgs-sloth { inherit system; };
+				pkgs-dbeaver = import nixpkgs-dbeaver { inherit system; };
 			};
 		};
 	in {
