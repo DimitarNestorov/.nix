@@ -94,6 +94,7 @@ in {
 			esbenp.prettier-vscode
 			mikestead.dotenv
 			vscode-icons-team.vscode-icons
+			bradlc.vscode-tailwindcss
 		];
 		userSettings = {
 			"direnv.path.executable" = "/etc/profiles/per-user/dimitar/bin/direnv";
