@@ -29,6 +29,7 @@ in {
 			tailscale
 			localsend
 			sloth-app
+			rapidapi
 		] ++ (if type == "work" then [] else [
 			realvnc-vnc-viewer
 			bartender
@@ -345,6 +346,11 @@ in {
 				};
 			};
 		};
+	};
+
+	system.keyboard = {
+		enableKeyMapping = true;
+		swapLeftCtrlAndFn = false; # This is not on internal keyboard only
 	};
 
 	system.stateVersion = 4;

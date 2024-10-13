@@ -12,6 +12,7 @@
 		nixpkgs-xcode.url = "github:nixos/nixpkgs/28f2f2a4f9723cf730e427952922755c2d552dfc";
 		nixpkgs-sloth.url = "github:nixos/nixpkgs/2aee66095ca9cd6dfa78ca18ce79a1a5599e828c";
 		nixpkgs-dbeaver.url = "github:nixos/nixpkgs/3c5a0228d9b4e6e233c22047d61ac6bd55e81661";
+		nixpkgs-rapidapi.url = "github:nixos/nixpkgs/d3c3415edb84cd0c85512f7fd0def521b81966c1";
 		darwin.url = "github:lnl7/nix-darwin/master";
 		darwin.inputs.nixpkgs.follows = "nixpkgs";
 		nix-index-database.url = "github:nix-community/nix-index-database";
@@ -58,6 +59,12 @@
 					"bartender"
 				];
 			};
+			pkgs-rapidapi = import inputs.nixpkgs-rapidapi {
+				inherit system;
+				config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+					"rapidapi"
+				];
+			};
 			pkgs-vncviewer = import inputs.nixpkgs-vncviewer {
 				inherit system;
 				config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
@@ -87,6 +94,7 @@
 							iterm2 = pkgs-iterm2.iterm2;
 							sloth-app = pkgs-sloth.sloth-app;
 							dbeaver-bin = pkgs-dbeaver.dbeaver-bin;
+							rapidapi = pkgs-rapidapi.rapidapi;
 						})
 					];
 				}
