@@ -1,6 +1,6 @@
-{ pkgs, pkgs-xcode, lib, type ? "personal", ... }:
+{ pkgs, lib, type ? "personal", ... }:
 let
-	xcodePkg = pkgs-xcode.darwin.xcode_16;
+	xcodePkg = pkgs.darwin.xcode_16_1;
 in {
 	nix.settings = {
 		experimental-features = "nix-command flakes";
@@ -8,6 +8,7 @@ in {
 	};
 
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+		"Xcode.app"
 		"google-chrome"
 		"keka"
 	];

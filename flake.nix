@@ -9,7 +9,6 @@
 		nixpkgs-bartender.url = "github:DimitarNestorov/nixpkgs/a548595bb3a3822fd27f73aa7c8be79ea762303b";
 		nixpkgs-vncviewer.url = "github:nixos/nixpkgs/43f616a7cc2ee6c755c2860b0e974c255c911a13";
 		nixpkgs-iterm2.url = "github:nixos/nixpkgs/4088596b40e68be2d75fb9a4a9f55d4a20034637";
-		nixpkgs-xcode.url = "github:nixos/nixpkgs/28f2f2a4f9723cf730e427952922755c2d552dfc";
 		nixpkgs-sloth.url = "github:nixos/nixpkgs/2aee66095ca9cd6dfa78ca18ce79a1a5599e828c";
 		nixpkgs-dbeaver.url = "github:nixos/nixpkgs/3c5a0228d9b4e6e233c22047d61ac6bd55e81661";
 		nixpkgs-rapidapi.url = "github:nixos/nixpkgs/d3c3415edb84cd0c85512f7fd0def521b81966c1";
@@ -71,17 +70,10 @@
 					"realvnc-vnc-viewer"
 				];
 			};
-			pkgs-xcode = import inputs.nixpkgs-xcode {
-				inherit system;
-				config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
-					"Xcode.app"
-				];
-			};
 		in darwin.lib.darwinSystem {
 			inherit system;
 			specialArgs = {
 				inherit type;
-				inherit pkgs-xcode;
 			};
 			modules = darwinModules ++ [
 				{
