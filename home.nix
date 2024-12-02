@@ -175,19 +175,5 @@ in {
 
 	xdg.configFile = {
 		"fish/conf.d/tide-vars.fish".text = fishSetVars (import ./tide-config.nix);
-
-		# https://github.com/LnL7/nix-darwin/issues/122#issuecomment-2272570087
-		"fish/conf.d/add-paths.fish".text = let
-			profiles = [
-				"/etc/profiles/per-user/$USER" # Home manager packages
-				"/run/current-system/sw"
-			];
-
-			makeBinSearchPath = lib.concatMapStringsSep " " (path: "${path}/bin");
-		in ''
-			# Fix path that was re-ordered by Apple's path_helper
-			fish_add_path --move --prepend --path ${makeBinSearchPath profiles}
-			set fish_user_paths $fish_user_paths
-		'';
 	};
 }

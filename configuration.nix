@@ -101,7 +101,7 @@ in {
 		dock = {
 			appswitcher-all-displays = true;
 			# Enables Desktop & Dock -> Mission Control -> Group windows by application
-			expose-group-by-app = true;
+			expose-group-apps = true;
 			# Disables Desktop & Dock -> Mission Control -> Automatically rearrange Spaces based on most recent use
 			mru-spaces = false;
 			# Disables Desktop & Dock -> Dock -> Show suggested and recent apps in Dock
