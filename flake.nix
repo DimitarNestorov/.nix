@@ -2,7 +2,7 @@
 	description = "System configuration";
 
 	inputs = {
-		nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
+		nixpkgs.url = "github:nixos/nixpkgs/release-24.11";
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 		nixpkgs-tailscale.url = "github:nixos/nixpkgs/eb19b36ec45caf14e9fe5026d3970d89c03ced69";
 		nixpkgs-aldente.url = "github:nixos/nixpkgs/db7dd707e17ac5d317ef4fd7924ce8820532952c";
