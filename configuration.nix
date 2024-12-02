@@ -11,6 +11,7 @@ in {
 		"Xcode.app"
 		"google-chrome"
 		"keka"
+		"vscode-extension-mhutchie-git-graph"
 	];
 
 	environment = {
