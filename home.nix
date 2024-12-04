@@ -21,8 +21,6 @@ let
 			cp $src $outDir/iterm2_shell_integration.fish
 		'';
 	};
-
-	fishSetVars = vals: pkgs.lib.foldlAttrs (acc: name: value: acc + "set -u ${name} ${toString value}\n") "" vals;
 in {
 	home.stateVersion = "24.05";
 
@@ -173,7 +171,20 @@ in {
 		];
 	};
 
-	xdg.configFile = {
+	xdg.configFile = let
+		fishSetVars = vals: pkgs.lib.foldlAttrs (acc: name: value: acc + "set -u ${name} ${toString value}\n") "" vals;
+	in {
 		"fish/conf.d/tide-vars.fish".text = fishSetVars (import ./tide-config.nix);
+
+		"fish/conf.d/add-nix-paths.fish".text = let
+			profiles = [
+				"/etc/profiles/per-user/$USER" # Home Manager packages
+				"/run/current-system/sw" # Nix Darwin packages
+			];
+
+			makeBinSearchPath = lib.concatMapStringsSep " " (path: "${path}/bin");
+		in ''
+			fish_add_path --move --prepend --path ${makeBinSearchPath profiles}
+		'';
 	};
 }
