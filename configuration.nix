@@ -12,6 +12,8 @@ in {
 		"google-chrome"
 		"keka"
 		"vscode-extension-mhutchie-git-graph"
+		"bartender"
+		"realvnc-vnc-viewer"
 	];
 
 	environment = {
