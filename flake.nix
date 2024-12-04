@@ -7,6 +7,7 @@
 		nixpkgs-aldente.url = "github:nixos/nixpkgs/820af6cb19862e5929bc0c76b278edfc67582e3d";
 		nixpkgs-iterm2.url = "github:nixos/nixpkgs/99d697b87b118231962a0da12754ffe36d5a8ead";
 		nixpkgs-rapidapi.url = "github:nixos/nixpkgs/6e71a1a5a65d6c4faf9ebfd71b7184580abd2e5c";
+		nixpkgs-colorls.url = "github:nixos/nixpkgs/48d275c3de4e2aece7d26179fd6e33a47daff39d";
 		darwin.url = "github:lnl7/nix-darwin/master";
 		darwin.inputs.nixpkgs.follows = "nixpkgs";
 		nix-index-database.url = "github:nix-community/nix-index-database";
@@ -38,6 +39,7 @@
 
 		configuration = { system, type ? "personal" }: let
 			pkgs-iterm2 = import inputs.nixpkgs-iterm2 { inherit system; };
+			pkgs-colorls = import inputs.nixpkgs-colorls { inherit system; };
 			pkgs-aldente = import inputs.nixpkgs-aldente {
 				inherit system;
 				config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
@@ -62,6 +64,7 @@
 							aldente = pkgs-aldente.aldente;
 							iterm2 = pkgs-iterm2.iterm2;
 							rapidapi = pkgs-rapidapi.rapidapi;
+							colorls = pkgs-colorls.colorls;
 						})
 					];
 				}
