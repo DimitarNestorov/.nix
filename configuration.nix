@@ -14,6 +14,7 @@ in {
 		"vscode-extension-mhutchie-git-graph"
 		"bartender"
 		"realvnc-vnc-viewer"
+		"vscode"
 	];
 
 	environment = {
@@ -24,7 +25,6 @@ in {
 			xcodePkg
 			google-chrome
 			keka
-			vscodium
 			git
 			imgcat
 			iterm2
@@ -34,7 +34,10 @@ in {
 			localsend
 			sloth-app
 			rapidapi
-		] ++ (if type == "work" then [] else [
+		] ++ (if type == "work" then [
+			vscode
+		] else [
+			vscodium
 			realvnc-vnc-viewer
 			bartender
 			aldente
@@ -115,13 +118,13 @@ in {
 			persistent-apps = if type == "work" then [
 				"/Applications/Microsoft Outlook.app"
 				"/System/Cryptexes/App/System/Applications/Safari.app"
-				"${pkgs.vscodium}/Applications/VSCodium.app"
+				"${pkgs.vscode}/Applications/Visual Studio Code.app"
 				"${xcodePkg}"
 				"${xcodePkg}/Contents/Developer/Applications/Simulator.app"
 				"${pkgs.iterm2}/Applications/iTerm2.app"
 				"/Applications/Figma.app"
 				"/Applications/Slack.app"
-				"/Applications/Microsoft Teams.app"
+				"/Applications/Microsoft Teams.localized/Microsoft Teams.app"
 				"/System/Applications/Launchpad.app"
 			] else [
 				"/System/Applications/Mail.app"

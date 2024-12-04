@@ -85,7 +85,7 @@ in {
 
 	programs.vscode = {
 		enable = true;
-		package = pkgs.vscodium;
+		package = if type == "work" then pkgs.vscode else pkgs.vscodium;
 		mutableExtensionsDir = false;
 		extensions = with pkgs.vscode-extensions; [
 			jnoortheen.nix-ide
