@@ -93,6 +93,7 @@ in {
 			mikestead.dotenv
 			vscode-icons-team.vscode-icons
 			bradlc.vscode-tailwindcss
+			yoavbls.pretty-ts-errors
 		];
 		userSettings = {
 			"direnv.path.executable" = "/etc/profiles/per-user/dimitar/bin/direnv";
