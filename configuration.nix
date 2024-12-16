@@ -42,6 +42,7 @@ in {
 			bartender
 			aldente
 			dbeaver-bin
+			mactracker
 		]);
 	};
 
