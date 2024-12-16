@@ -94,7 +94,9 @@ in {
 			vscode-icons-team.vscode-icons
 			bradlc.vscode-tailwindcss
 			yoavbls.pretty-ts-errors
-		];
+		] ++ (if type == "work" then [] else [
+			ziglang.vscode-zig
+		]);
 		userSettings = {
 			"direnv.path.executable" = "/etc/profiles/per-user/dimitar/bin/direnv";
 			"editor.accessibilitySupport" = "off";
@@ -135,7 +137,11 @@ in {
 			};
 			"update.mode" = "none";
 			"workbench.iconTheme" = "vscode-icons";
-		};
+		} // (if type == "work" then {} else {
+			"zig.path" = "${pkgs.zig}/bin/zig";
+			"zig.zls.path" = "${pkgs.zls}/bin/zls";
+			"zig.initialSetupDone" = true;
+		});
 		keybindings = [
 			{
 				key = "shift+cmd+g";
