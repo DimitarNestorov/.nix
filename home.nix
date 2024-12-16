@@ -30,6 +30,7 @@ in {
 		terminal-notifier
 		nano
 		devenv
+		nix-tree
 	];
 
 	programs.home-manager.enable = true;
