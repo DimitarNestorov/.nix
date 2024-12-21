@@ -1,6 +1,11 @@
 { pkgs, lib, type ? "personal", ... }:
 let
-	xcodePkg = pkgs.darwin.xcode_16_1;
+	xcodePkg = pkgs.requireFile {
+		name = "Xcode.app";
+		message = "";
+		hashMode = "recursive";
+		sha256 = "sha256-wQjNuFZu/cN82mEEQbC1MaQt39jLLDsntsbnDidJFEs=";
+	};
 in {
 	nix.settings = {
 		experimental-features = "nix-command flakes";
