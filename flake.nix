@@ -30,7 +30,9 @@
 			{
 				nix.registry = {
 					nixpkgs.flake = nixpkgs;
+					nixpgks.flake = nixpkgs;
 					nixpkgs-unstable.flake = nixpkgs-unstable;
+					nixpgks-unstable.flake = nixpkgs-unstable;
 				};
 			}
 		];
