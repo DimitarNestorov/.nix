@@ -4,7 +4,7 @@
 
 ### Enable Full Disk Access for Terminal
 
-Some user settings require Full Disk Access to be enabled for the app that is running `darwin-rebuild switch`. After VSCodium and iTerm2 get installed you will need to enable Full Disk Access for them too if you want to run `darwin-rebuild switch` in them.
+Some user settings require Full Disk Access to be enabled for the app that is running `darwin-rebuild switch`. After VSCodium and Ghostty get installed you will need to enable Full Disk Access for them too if you want to run `darwin-rebuild switch` in them.
 
 ### Run the script
 

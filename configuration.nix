@@ -1,5 +1,6 @@
 { pkgs, lib, type ? "personal", ... }:
 let
+	ghostty = pkgs.callPackage ./ghostty.nix {};
 	xcodePkg = pkgs.requireFile {
 		name = "Xcode.app";
 		message = "";
@@ -32,7 +33,7 @@ in {
 			keka
 			git
 			imgcat
-			iterm2
+			ghostty
 			colorls
 			iina
 			tailscale
@@ -127,7 +128,7 @@ in {
 				"${pkgs.vscode}/Applications/Visual Studio Code.app"
 				"${xcodePkg}"
 				"${xcodePkg}/Contents/Developer/Applications/Simulator.app"
-				"${pkgs.iterm2}/Applications/iTerm2.app"
+				"${ghostty}/Applications/Ghostty.app"
 				"/Applications/Figma.app"
 				"/Applications/Slack.app"
 				"/Applications/Microsoft Teams.localized/Microsoft Teams.app"
@@ -141,7 +142,7 @@ in {
 				"${pkgs.vscodium}/Applications/VSCodium.app"
 				"${xcodePkg}"
 				"${xcodePkg}/Contents/Developer/Applications/Simulator.app"
-				"${pkgs.iterm2}/Applications/iTerm2.app"
+				"${ghostty}/Applications/Ghostty.app"
 				"${pkgs.google-chrome}/Applications/Google Chrome.app"
 				"/System/Applications/Utilities/Screen Sharing.app"
 				"/System/Applications/Launchpad.app"
