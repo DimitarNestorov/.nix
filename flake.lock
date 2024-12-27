@@ -126,6 +126,26 @@
         "type": "github"
       }
     },
+    "personal-nur": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1735328141,
+        "narHash": "sha256-KH+NDpiTQffseg0N56/K1QAULO9j4myw8PQUWkKuVZo=",
+        "owner": "DimitarNestorov",
+        "repo": "Nix-user-repository-packages",
+        "rev": "9e6594bd8b66b8a425ed22ebbe811026357cb7c6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DimitarNestorov",
+        "repo": "Nix-user-repository-packages",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "darwin": "darwin",
@@ -134,7 +154,8 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-colorls": "nixpkgs-colorls",
         "nixpkgs-rapidapi": "nixpkgs-rapidapi",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "personal-nur": "personal-nur"
       }
     }
   },

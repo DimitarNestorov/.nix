@@ -21,6 +21,7 @@ in {
 		"bartender"
 		"realvnc-vnc-viewer"
 		"vscode"
+		"daisydisk"
 	];
 
 	environment = {
@@ -49,6 +50,7 @@ in {
 			aldente
 			dbeaver-bin
 			mactracker
+			DimitarNestorov.daisydisk
 		]);
 	};
 

@@ -12,6 +12,8 @@
 		nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 		home-manager.url = "github:nix-community/home-manager/release-24.11";
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
+		personal-nur.url = "github:DimitarNestorov/Nix-user-repository-packages";
+		personal-nur.inputs.nixpkgs.follows = "nixpkgs";
 	};
 
 	outputs = {
@@ -21,6 +23,7 @@
 		nixpkgs-unstable,
 		nix-index-database,
 		home-manager,
+		personal-nur,
 		...
 	} @ inputs: let
 		darwinModules = [
@@ -66,6 +69,7 @@
 							rapidapi = pkgs-rapidapi.rapidapi;
 							colorls = pkgs-colorls.colorls;
 						})
+						personal-nur.overlay
 					];
 				}
 			];
