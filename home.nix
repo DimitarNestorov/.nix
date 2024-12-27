@@ -194,5 +194,7 @@ in {
 		in ''
 			fish_add_path --move --prepend --path ${makeBinSearchPath profiles}
 		'';
+
+		"ghostty/config" = { source = ./ghostty.conf; };
 	};
 }
