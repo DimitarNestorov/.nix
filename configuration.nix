@@ -11,6 +11,10 @@ in {
 	nix.settings = {
 		experimental-features = "nix-command flakes";
 		trusted-users = ["root" "dimitar"];
+		keep-going = true;
+		keep-failed = true;
+		keep-outputs = true;
+		show-trace = true;
 	};
 
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
