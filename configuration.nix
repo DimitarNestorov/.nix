@@ -26,6 +26,7 @@ in {
 		"realvnc-vnc-viewer"
 		"vscode"
 		"daisydisk"
+		"taccy"
 	];
 
 	environment = {
@@ -55,6 +56,7 @@ in {
 			dbeaver-bin
 			mactracker
 			DimitarNestorov.daisydisk
+			DimitarNestorov.eclecticlight.taccy
 		]);
 	};
 
