@@ -89,6 +89,10 @@ in {
 		};
 	};
 
+	system.activationScripts.postUserActivation.text = ''
+		sudo xcode-select -s ${xcodePkg}
+	'';
+
 	system.defaults = {
 		NSGlobalDomain = {
 			# Enables Keyboard -> Keyboard navigation
