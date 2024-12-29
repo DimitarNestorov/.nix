@@ -94,6 +94,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-ghostty": {
+      "locked": {
+        "lastModified": 1735475203,
+        "narHash": "sha256-yEDjYGQ3qFXYSbtzUWZewH+d8IWakPROHrbTlkgXPiA=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "3187271a737d623ba3ebfa12ec3e8b66a0321542",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "3187271a737d623ba3ebfa12ec3e8b66a0321542",
+        "type": "github"
+      }
+    },
     "nixpkgs-rapidapi": {
       "locked": {
         "lastModified": 1733282571,
@@ -153,6 +169,7 @@
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "nixpkgs-colorls": "nixpkgs-colorls",
+        "nixpkgs-ghostty": "nixpkgs-ghostty",
         "nixpkgs-rapidapi": "nixpkgs-rapidapi",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "personal-nur": "personal-nur"
