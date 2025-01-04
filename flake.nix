@@ -6,7 +6,6 @@
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 		nixpkgs-rapidapi.url = "github:nixos/nixpkgs/6e71a1a5a65d6c4faf9ebfd71b7184580abd2e5c";
 		nixpkgs-colorls.url = "github:nixos/nixpkgs/48d275c3de4e2aece7d26179fd6e33a47daff39d";
-		nixpkgs-ghostty.url = "github:nixos/nixpkgs/3187271a737d623ba3ebfa12ec3e8b66a0321542";
 		darwin.url = "github:lnl7/nix-darwin/master";
 		darwin.inputs.nixpkgs.follows = "nixpkgs";
 		nix-index-database.url = "github:nix-community/nix-index-database";
@@ -43,7 +42,6 @@
 
 		configuration = { system, type ? "personal" }: let
 			pkgs-colorls = import inputs.nixpkgs-colorls { inherit system; };
-			pkgs-ghostty = import inputs.nixpkgs-ghostty { inherit system; };
 			pkgs-unstable = import inputs.nixpkgs-unstable {
 				inherit system;
 				config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
@@ -70,7 +68,6 @@
 							aldente = pkgs-unstable.aldente;
 							rapidapi = pkgs-rapidapi.rapidapi;
 							colorls = pkgs-colorls.colorls;
-							ghostty = pkgs-ghostty.ghostty;
 						})
 						personal-nur.overlay
 					];

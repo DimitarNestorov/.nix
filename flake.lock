@@ -94,22 +94,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-ghostty": {
-      "locked": {
-        "lastModified": 1735475203,
-        "narHash": "sha256-yEDjYGQ3qFXYSbtzUWZewH+d8IWakPROHrbTlkgXPiA=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "3187271a737d623ba3ebfa12ec3e8b66a0321542",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "3187271a737d623ba3ebfa12ec3e8b66a0321542",
-        "type": "github"
-      }
-    },
     "nixpkgs-rapidapi": {
       "locked": {
         "lastModified": 1733282571,
@@ -149,11 +133,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1735483830,
-        "narHash": "sha256-m1y2hu1lEbnMDJOpAQ+ndL7vOf8E6sdaf+hEmaut4WQ=",
+        "lastModified": 1735997539,
+        "narHash": "sha256-5axOgcpEUtSZP4ZO7qCV7T1D633pNMnSuT42FAhKdAA=",
         "owner": "DimitarNestorov",
         "repo": "Nix-user-repository-packages",
-        "rev": "31246a165022d509fd6b219687d13a94c31be70d",
+        "rev": "2a9a438aa7d6c3f42d687632e8e33efe3a457acb",
         "type": "github"
       },
       "original": {
@@ -169,7 +153,6 @@
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "nixpkgs-colorls": "nixpkgs-colorls",
-        "nixpkgs-ghostty": "nixpkgs-ghostty",
         "nixpkgs-rapidapi": "nixpkgs-rapidapi",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "personal-nur": "personal-nur"
