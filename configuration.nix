@@ -27,6 +27,8 @@ in {
 		"vscode"
 		"daisydisk"
 		"taccy"
+		"velja"
+		"pandan"
 	];
 
 	environment = {
@@ -46,8 +48,11 @@ in {
 			localsend
 			sloth-app
 			rapidapi
+			DimitarNestorov.sindresorhus.pasteboard-viewer
+			DimitarNestorov.sindresorhus.velja
 		] ++ (if type == "work" then [
 			vscode
+			DimitarNestorov.sindresorhus.pandan
 		] else [
 			vscodium
 			realvnc-vnc-viewer
