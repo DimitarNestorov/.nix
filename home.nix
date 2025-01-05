@@ -21,6 +21,67 @@ let
 			cp $src $outDir/iterm2_shell_integration.fish
 		'';
 	};
+
+	vscode = if type == "work" then pkgs.vscode else pkgs.vscodium;
+
+	configDir = {
+		"vscode" = "Code";
+		"vscode-insiders" = "Code - Insiders";
+		"vscodium" = "VSCodium";
+		"openvscode-server" = "OpenVSCode Server";
+	}.${vscode.pname};
+
+	vscodeUserDir = if pkgs.stdenv.hostPlatform.isDarwin then
+		"Library/Application Support/${configDir}/User"
+	else
+		"${config.xdg.configHome}/${configDir}/User";
+
+	vscodeSettings = pkgs.writeText "settings.json" (builtins.toJSON ({
+		"direnv.path.executable" = "/etc/profiles/per-user/dimitar/bin/direnv";
+		"editor.accessibilitySupport" = "off";
+		"editor.defaultFormatter" = "esbenp.prettier-vscode";
+		"editor.fontFamily" = "JetBrainsMono Nerd Font";
+		"editor.fontLigatures" = true;
+		"editor.fontSize" = 16;
+		"editor.formatOnSave" = true;
+		"editor.insertSpaces" = false;
+		"editor.minimap.enabled" = false;
+		"editor.wordWrap" = "on";
+		"extensions.autoCheckUpdates" = false;
+		"extensions.autoUpdate" = false;
+		"files.autoSave" = "onFocusChange";
+		"git.autofetch" = true;
+		"git.path" = "/run/current-system/sw/bin/git";
+		"prettier.semi" = false;
+		"prettier.tabWidth" = 4;
+		"prettier.trailingComma" = "all";
+		"prettier.useTabs" = true;
+		"terminal.integrated.defaultProfile.osx" = "fish";
+		"terminal.integrated.fontSize" = 15;
+		"terminal.integrated.lineHeight" = 1.1;
+		"terminal.integrated.profiles.osx" = {
+			"bash" = {
+				"path" = "bash";
+				"args" = ["-l"];
+				"icon" = "terminal-bash";
+			};
+			"zsh" = {
+				"path" = "zsh";
+				"args" = ["-l"];
+			};
+			"fish" = {
+				"path" = "/etc/profiles/per-user/dimitar/bin/fish";
+				"args" = ["-l"];
+			};
+		};
+		"update.mode" = "none";
+		"workbench.colorTheme" = "Visual Studio Light";
+		"workbench.iconTheme" = "vscode-icons";
+	} // (if type == "work" then {} else {
+		"zig.path" = "${pkgs.zig}/bin/zig";
+		"zig.zls.path" = "${pkgs.zls}/bin/zls";
+		"zig.initialSetupDone" = true;
+	})));
 in {
 	home.stateVersion = "24.05";
 
@@ -82,9 +143,14 @@ in {
 
 	programs.htop.enable = true;
 
+	home.activation.writableFile = lib.hm.dag.entryAfter ["writeBoundary"] ''
+		cp ${vscodeSettings} "${vscodeUserDir}/settings.json"
+		chmod u+w "${vscodeUserDir}/settings.json"
+	'';
+
 	programs.vscode = {
 		enable = true;
-		package = if type == "work" then pkgs.vscode else pkgs.vscodium;
+		package = vscode;
 		mutableExtensionsDir = false;
 		extensions = with pkgs.vscode-extensions; [
 			jnoortheen.nix-ide
@@ -98,51 +164,6 @@ in {
 		] ++ (if type == "work" then [] else [
 			ziglang.vscode-zig
 		]);
-		userSettings = {
-			"direnv.path.executable" = "/etc/profiles/per-user/dimitar/bin/direnv";
-			"editor.accessibilitySupport" = "off";
-			"editor.defaultFormatter" = "esbenp.prettier-vscode";
-			"editor.fontFamily" = "JetBrainsMono Nerd Font";
-			"editor.fontLigatures" = true;
-			"editor.fontSize" = 16;
-			"editor.formatOnSave" = true;
-			"editor.insertSpaces" = false;
-			"editor.minimap.enabled" = false;
-			"editor.wordWrap" = "on";
-			"extensions.autoCheckUpdates" = false;
-			"extensions.autoUpdate" = false;
-			"files.autoSave" = "onFocusChange";
-			"git.autofetch" = true;
-			"git.path" = "/run/current-system/sw/bin/git";
-			"prettier.semi" = false;
-			"prettier.tabWidth" = 4;
-			"prettier.trailingComma" = "all";
-			"prettier.useTabs" = true;
-			"terminal.integrated.defaultProfile.osx" = "fish";
-			"terminal.integrated.fontSize" = 15;
-			"terminal.integrated.lineHeight" = 1.1;
-			"terminal.integrated.profiles.osx" = {
-				"bash" = {
-					"path" = "bash";
-					"args" = ["-l"];
-					"icon" = "terminal-bash";
-				};
-				"zsh" = {
-					"path" = "zsh";
-					"args" = ["-l"];
-				};
-				"fish" = {
-					"path" = "/etc/profiles/per-user/dimitar/bin/fish";
-					"args" = ["-l"];
-				};
-			};
-			"update.mode" = "none";
-			"workbench.iconTheme" = "vscode-icons";
-		} // (if type == "work" then {} else {
-			"zig.path" = "${pkgs.zig}/bin/zig";
-			"zig.zls.path" = "${pkgs.zls}/bin/zls";
-			"zig.initialSetupDone" = true;
-		});
 		keybindings = [
 			{
 				key = "shift+cmd+g";
