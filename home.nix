@@ -92,6 +92,8 @@ in {
 		nano
 		devenv
 		nix-tree
+
+		(import ./idof.nix { inherit pkgs; })
 	];
 
 	programs.home-manager.enable = true;
