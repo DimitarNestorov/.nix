@@ -287,10 +287,15 @@ in {
 			};
 
 			"com.apple.Safari" = {
+				# Sets `General -> Safari opens with` to `All windows from last session`
+				AlwaysRestoreSessionAtLaunch = 1;
+				ExcludePrivateWindowWhenRestoringSessionAtLaunch = 0;
+				OpenPrivateWindowWhenNotRestoringSessionAtLaunch = 0;
+
 				# Disables AutoFill -> AutoFill web forms -> Credit cards
 				AutoFillCreditCardData = 0;
-				# Disables AutoFill -> AutoFill web forms -> User names and passwords
-				AutoFillPasswords = 0;
+				# Set `AutoFill -> AutoFill web forms -> User names and passwords` to enabled on work machine and disabled on others
+				AutoFillPasswords = if type == "work" then 1 else 0;
 				# Enables Advanced -> Smart Search field -> Show full website address
 				ShowFullURLInSmartSearchField = 1;
 
