@@ -15,6 +15,7 @@ in {
 		keep-failed = true;
 		keep-outputs = true;
 		show-trace = true;
+		sandbox = true;
 	};
 
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
