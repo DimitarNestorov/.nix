@@ -22,7 +22,7 @@ let
 		'';
 	};
 
-	vscode = if type == "work" then pkgs.vscode else pkgs.vscodium;
+	vscode = pkgs.vscodium;
 
 	configDir = {
 		"vscode" = "Code";
@@ -77,6 +77,7 @@ let
 		"update.mode" = "none";
 		"workbench.colorTheme" = "Visual Studio Light";
 		"workbench.iconTheme" = "vscode-icons";
+		"vsicons.dontShowNewVersionMessage" = true;
 	} // (if type == "work" then {} else {
 		"zig.path" = "${pkgs.zig}/bin/zig";
 		"zig.zls.path" = "${pkgs.zls}/bin/zls";

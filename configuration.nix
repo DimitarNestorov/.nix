@@ -45,6 +45,7 @@ in {
 			ghostty
 			colorls
 			iina
+			vscodium
 			tailscale
 			localsend
 			sloth-app
@@ -52,10 +53,8 @@ in {
 			DimitarNestorov.sindresorhus.pasteboard-viewer
 			DimitarNestorov.sindresorhus.velja
 		] ++ (if type == "work" then [
-			vscode
 			DimitarNestorov.sindresorhus.pandan
 		] else [
-			vscodium
 			realvnc-vnc-viewer
 			bartender
 			aldente
@@ -143,7 +142,7 @@ in {
 			persistent-apps = if type == "work" then [
 				"/Applications/Microsoft Outlook.app"
 				"/System/Cryptexes/App/System/Applications/Safari.app"
-				"${pkgs.vscode}/Applications/Visual Studio Code.app"
+				"${pkgs.vscodium}/Applications/Visual Studio Code.app"
 				"${xcodePkg}"
 				"${xcodePkg}/Contents/Developer/Applications/Simulator.app"
 				"${ghostty}/Applications/Ghostty.app"
