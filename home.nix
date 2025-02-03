@@ -164,7 +164,15 @@ in {
 			vscode-icons-team.vscode-icons
 			bradlc.vscode-tailwindcss
 			yoavbls.pretty-ts-errors
-		] ++ (if type == "work" then [] else [
+			dbaeumer.vscode-eslint
+		] ++ (pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+			{
+				name = "robotframework-lsp";
+				publisher = "robocorp";
+				version = "1.13.0";
+				sha256 = "sha256-3hyKKAMUy4kXGRWBQCL4adV1W6xtgS1OYhJJYSzswbo=";
+			}
+		]) ++ (if type == "work" then [] else [
 			ziglang.vscode-zig
 		]);
 		keybindings = [
