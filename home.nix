@@ -140,6 +140,7 @@ in {
 		extraConfig = {
 			core.editor = "/etc/profiles/per-user/dimitar/bin/nano";
 			push.autoSetupRemote = true;
+			push.default = "current";
 		};
 	};
 
