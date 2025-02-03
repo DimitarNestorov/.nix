@@ -1,27 +1,5 @@
 { config, lib, pkgs, type ? "personal", ... }:
 let
-	iterm2-terminal-integration = pkgs.stdenv.mkDerivation {
-		pname = "iterm2-terminal-integration";
-		version = "0.0.1";
-
-		src = pkgs.fetchurl {
-			url = "https://iterm2.com/shell_integration/fish";
-			sha256 = "sha256-29XvF/8KGd63NOAqWPoxODPQAMA8gNr+MIHFEqcKov4=";
-		};
-
-		unpackPhase = ''
-			for srcFile in $src; do
-				cp $srcFile $(stripHash $srcFile)
-			done
-		'';
-
-		installPhase = ''
-			outDir=$out/bin
-			mkdir -p $outDir
-			cp $src $outDir/iterm2_shell_integration.fish
-		'';
-	};
-
 	vscode = pkgs.vscodium;
 
 	configDir = {
@@ -88,7 +66,6 @@ in {
 
 	home.packages = with pkgs; [
 		grc
-		iterm2-terminal-integration
 		terminal-notifier
 		nano
 		devenv
@@ -113,10 +90,6 @@ in {
 			ls = "colorls";
 			code = "codium";
 		};
-
-		loginShellInit = ''
-			source ${iterm2-terminal-integration}/bin/iterm2_shell_integration.fish
-		'';
 
 		plugins = with pkgs.fishPlugins; [
 			{ name = "tide"; src = tide.src; }
