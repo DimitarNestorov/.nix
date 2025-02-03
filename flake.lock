@@ -117,11 +117,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1735997932,
-        "narHash": "sha256-sMyXCOcEScKQMznfe82RlfmDkQhNbQQrR83m42TuDk4=",
+        "lastModified": 1738597219,
+        "narHash": "sha256-p4/KBFphQjlbo+nJTNONtUocNNnqOZKkQT+ijTLseb8=",
         "owner": "DimitarNestorov",
         "repo": "Nix-user-repository-packages",
-        "rev": "2c28fccc04aa8f77773f83e1cbe2b0add90cb1cc",
+        "rev": "81b4eb17742b39d2388dcae7b8cc3eb3a678e2eb",
         "type": "github"
       },
       "original": {
