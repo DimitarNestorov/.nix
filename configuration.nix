@@ -1,4 +1,11 @@
-{ pkgs, lib, type ? "personal", ... }:
+{
+	pkgs,
+	lib,
+	type ? "personal",
+	dimitar-uuid ? "00000000-0000-4000-8000-000000000000",
+	...
+}:
+
 let
 	ghostty = pkgs.DimitarNestorov.ghostty;
 	xcodePkg = pkgs.requireFile {
@@ -357,10 +364,8 @@ in {
 		};
 
 		CustomSystemPreferences = {
-			"/var/root/Library/Preferences/com.apple.CoreBrightness.plist" = let
-				userId = builtins.readFile (pkgs.runCommand "user-id" {} "/usr/bin/dscl . -read /Users/dimitar GeneratedUID | /usr/bin/sed 's/GeneratedUID: //' | /usr/bin/tr -d \\\\n > $out");
-			in {
-				"CBUser-${userId}" = {
+			"/var/root/Library/Preferences/com.apple.CoreBrightness.plist" = {
+				"CBUser-${dimitar-uuid}" = {
 					CBBlueLightReductionCCTTargetRaw = "3433.05";
 					CBBlueReductionStatus = {
 						AutoBlueReductionEnabled = 1;

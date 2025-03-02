@@ -39,7 +39,7 @@
 			}
 		];
 
-		configuration = { system, type ? "personal" }: let
+		configuration = { system, type ? "personal", dimitar-uuid }: let
 			pkgs-unstable = import inputs.nixpkgs-unstable {
 				inherit system;
 				config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
@@ -56,7 +56,7 @@
 		in darwin.lib.darwinSystem {
 			inherit system;
 			specialArgs = {
-				inherit type;
+				inherit type dimitar-uuid;
 			};
 			modules = darwinModules ++ [
 				{
@@ -74,10 +74,10 @@
 		};
 	in {
 		darwinConfigurations = {
-			adonis = configuration { system = "aarch64-darwin"; };
+			adonis = configuration { system = "aarch64-darwin"; dimitar-uuid = "08B5F559-BC13-4D11-AFBE-0CC7F1E58EDF"; };
 			jason = configuration { system = "aarch64-darwin"; };
 			helenus = configuration { system = "x86_64-darwin"; };
-			work = configuration { system = "aarch64-darwin"; type = "work"; };
+			work = configuration { system = "aarch64-darwin"; type = "work"; dimitar-uuid = "3078B925-5564-4B6D-A8DF-747490244783"; };
 		};
 	};
 }
