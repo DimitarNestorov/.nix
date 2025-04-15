@@ -4,8 +4,7 @@
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/release-24.11";
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-		nixpkgs-rapidapi.url = "github:nixos/nixpkgs/6e71a1a5a65d6c4faf9ebfd71b7184580abd2e5c";
-		darwin.url = "github:lnl7/nix-darwin/master";
+		darwin.url = "github:lnl7/nix-darwin/nix-darwin-24.11";
 		darwin.inputs.nixpkgs.follows = "nixpkgs";
 		nix-index-database.url = "github:nix-community/nix-index-database";
 		nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
@@ -45,11 +44,6 @@
 				config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
 					"aldente"
 					"mactracker"
-				];
-			};
-			pkgs-rapidapi = import inputs.nixpkgs-rapidapi {
-				inherit system;
-				config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
 					"rapidapi"
 				];
 			};
@@ -65,7 +59,7 @@
 							mactracker = pkgs-unstable.mactracker;
 							aldente = pkgs-unstable.aldente;
 							colorls = pkgs-unstable.colorls;
-							rapidapi = pkgs-rapidapi.rapidapi;
+							rapidapi = pkgs-unstable.rapidapi;
 						})
 						personal-nur.overlay
 					];
