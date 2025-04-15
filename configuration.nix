@@ -143,13 +143,13 @@ in {
 			persistent-apps = if type == "work" then [
 				"/Applications/Microsoft Outlook.app"
 				"/System/Cryptexes/App/System/Applications/Safari.app"
-				"${pkgs.vscodium}/Applications/Visual Studio Code.app"
+				"${pkgs.vscodium}/Applications/VSCodium.app"
 				"${pkgs.xcode}"
 				"${pkgs.xcode}/Contents/Developer/Applications/Simulator.app"
 				"${ghostty}/Applications/Ghostty.app"
 				"/Applications/Figma.app"
 				"/Applications/Slack.app"
-				"/Applications/Microsoft Teams.localized/Microsoft Teams.app"
+				"/Applications/Microsoft Teams.app"
 				"/System/Applications/Launchpad.app"
 			] else [
 				"/System/Applications/Mail.app"
