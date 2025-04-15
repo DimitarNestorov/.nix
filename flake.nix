@@ -45,6 +45,7 @@
 					"aldente"
 					"mactracker"
 					"rapidapi"
+					"Xcode.app"
 				];
 			};
 		in darwin.lib.darwinSystem {
@@ -56,6 +57,7 @@
 				{
 					nixpkgs.overlays = [
 						(self: super: {
+							xcode = pkgs-unstable.darwin.xcode_16_2;
 							mactracker = pkgs-unstable.mactracker;
 							aldente = pkgs-unstable.aldente;
 							colorls = pkgs-unstable.colorls;

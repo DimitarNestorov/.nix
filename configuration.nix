@@ -8,12 +8,6 @@
 
 let
 	ghostty = pkgs.DimitarNestorov.ghostty;
-	xcodePkg = pkgs.requireFile {
-		name = "Xcode.app";
-		message = "";
-		hashMode = "recursive";
-		sha256 = "sha256-wQjNuFZu/cN82mEEQbC1MaQt39jLLDsntsbnDidJFEs=";
-	};
 in {
 	nix.settings = {
 		experimental-features = "nix-command flakes";
@@ -44,7 +38,7 @@ in {
 		# $ nix-env -qaP | grep wget
 		systemPackages = with pkgs; [
 			# TODO: _1password-gui
-			xcodePkg
+			xcode
 			google-chrome
 			keka
 			git
@@ -102,7 +96,7 @@ in {
 	};
 
 	system.activationScripts.postUserActivation.text = ''
-		sudo xcode-select -s ${xcodePkg}
+		sudo xcode-select -s ${pkgs.xcode}
 	'';
 
 	system.defaults = {
@@ -150,8 +144,8 @@ in {
 				"/Applications/Microsoft Outlook.app"
 				"/System/Cryptexes/App/System/Applications/Safari.app"
 				"${pkgs.vscodium}/Applications/Visual Studio Code.app"
-				"${xcodePkg}"
-				"${xcodePkg}/Contents/Developer/Applications/Simulator.app"
+				"${pkgs.xcode}"
+				"${pkgs.xcode}/Contents/Developer/Applications/Simulator.app"
 				"${ghostty}/Applications/Ghostty.app"
 				"/Applications/Figma.app"
 				"/Applications/Slack.app"
@@ -164,8 +158,8 @@ in {
 				"/System/Applications/Music.app"
 				"/System/Cryptexes/App/System/Applications/Safari.app"
 				"${pkgs.vscodium}/Applications/VSCodium.app"
-				"${xcodePkg}"
-				"${xcodePkg}/Contents/Developer/Applications/Simulator.app"
+				"${pkgs.xcode}"
+				"${pkgs.xcode}/Contents/Developer/Applications/Simulator.app"
 				"${ghostty}/Applications/Ghostty.app"
 				"${pkgs.google-chrome}/Applications/Google Chrome.app"
 				"/System/Applications/Utilities/Screen Sharing.app"
