@@ -59,7 +59,6 @@
 						(self: super: {
 							xcode = pkgs-unstable.darwin.xcode_16_2;
 							vscodium = pkgs-unstable.vscodium;
-							devenv = pkgs-unstable.devenv;
 							mactracker = pkgs-unstable.mactracker;
 							aldente = pkgs-unstable.aldente;
 							colorls = pkgs-unstable.colorls;
