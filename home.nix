@@ -56,6 +56,7 @@ let
 		"workbench.colorTheme" = "Visual Studio Light";
 		"workbench.iconTheme" = "vscode-icons";
 		"vsicons.dontShowNewVersionMessage" = true;
+		"redhat.telemetry.enabled" = false;
 	} // (if type == "work" then {} else {
 		"zig.path" = "${pkgs.zig}/bin/zig";
 		"zig.zls.path" = "${pkgs.zls}/bin/zls";
@@ -147,6 +148,7 @@ in {
 				sha256 = "sha256-3hyKKAMUy4kXGRWBQCL4adV1W6xtgS1OYhJJYSzswbo=";
 			}
 		]) ++ (if type == "work" then [] else [
+			redhat.vscode-xml
 			ziglang.vscode-zig
 		]);
 		keybindings = [
