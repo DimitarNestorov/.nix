@@ -57,6 +57,15 @@ let
 		"workbench.iconTheme" = "vscode-icons";
 		"vsicons.dontShowNewVersionMessage" = true;
 		"redhat.telemetry.enabled" = false;
+		"nix.serverPath" = "${pkgs.nil}/bin/nil";
+		"nix.enableLanguageServer" = true;
+		"nix.serverSettings" = {
+			"nil" = {
+				"formatting" = {
+					"command" = ["${pkgs.nixfmt-rfc-style}/bin/nixfmt"];
+				};
+			};
+		};
 	} // (if type == "work" then {} else {
 		"zig.path" = "${pkgs.zig}/bin/zig";
 		"zig.zls.path" = "${pkgs.zls}/bin/zls";
