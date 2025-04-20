@@ -150,6 +150,8 @@ in {
 		]) ++ (if type == "work" then [] else [
 			redhat.vscode-xml
 			ziglang.vscode-zig
+			tauri-apps.tauri-vscode
+			rust-lang.rust-analyzer
 		]);
 		keybindings = [
 			{
