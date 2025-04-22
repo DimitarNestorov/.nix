@@ -142,6 +142,12 @@ in
         body = "";
       };
     };
+
+    shellInit = ''
+      if not string match -q '/nix/store/*' (string join \n $PATH)
+        set -x fish_user_paths /etc/profiles/per-user/$USER/bin /run/current-system/sw/bin
+      end
+    '';
   };
 
   programs.git = {
@@ -249,19 +255,6 @@ in
     in
     {
       "fish/conf.d/tide-vars.fish".text = fishSetVars (import ./tide-config.nix);
-
-      "fish/conf.d/add-nix-paths.fish".text =
-        let
-          profiles = [
-            "/etc/profiles/per-user/$USER" # Home Manager packages
-            "/run/current-system/sw" # Nix Darwin packages
-          ];
-
-          makeBinSearchPath = lib.concatMapStringsSep " " (path: "${path}/bin");
-        in
-        ''
-          			fish_add_path --move --prepend --path ${makeBinSearchPath profiles}
-          		'';
 
       "ghostty/config" = {
         source = ./ghostty.conf;
