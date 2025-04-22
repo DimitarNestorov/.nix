@@ -69,6 +69,7 @@
               nixpkgs.overlays = [
                 (self: super: {
                   xcode = pkgs-unstable.darwin.xcode_16_2;
+                  devenv = pkgs-unstable.devenv;
                   vscodium = pkgs-unstable.vscodium;
                   mactracker = pkgs-unstable.mactracker;
                   aldente = pkgs-unstable.aldente;
@@ -85,7 +86,7 @@
       darwinConfigurations = {
         adonis = configuration {
           system = "aarch64-darwin";
-          dimitar-uuid = "08B5F559-BC13-4D11-AFBE-0CC7F1E58EDF";
+          dimitar-uuid = "08B5F559-BC13-4D11-AFBE-0CC7F1E58EDF"; # Find in System Preferences -> Users & Groups -> Advanced Options
         };
         jason = configuration { system = "aarch64-darwin"; };
         helenus = configuration { system = "x86_64-darwin"; };
