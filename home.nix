@@ -77,6 +77,12 @@ let
             };
           };
         };
+        "[nix]" = {
+          "editor.defaultFormatter" = "jnoortheen.nix-ide";
+        };
+        "[xml]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
       }
       // (
         if type == "work" then
@@ -86,6 +92,7 @@ let
             "zig.path" = "${pkgs.zig}/bin/zig";
             "zig.zls.path" = "${pkgs.zls}/bin/zls";
             "zig.initialSetupDone" = true;
+            "xml.java.home" = "${pkgs.jdk}";
           }
       )
     )
