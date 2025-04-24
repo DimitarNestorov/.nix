@@ -149,12 +149,6 @@ in
         body = "";
       };
     };
-
-    shellInit = ''
-      if not string match -q '/nix/store/*' (string join \n $PATH)
-        set -x fish_user_paths /etc/profiles/per-user/$USER/bin /run/current-system/sw/bin
-      end
-    '';
   };
 
   programs.git = {
@@ -175,9 +169,9 @@ in
   programs.htop.enable = true;
 
   home.activation.writableFile = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    		cp ${vscodeSettings} "${vscodeUserDir}/settings.json"
-    		chmod u+w "${vscodeUserDir}/settings.json"
-    	'';
+    cp ${vscodeSettings} "${vscodeUserDir}/settings.json"
+    chmod u+w "${vscodeUserDir}/settings.json"
+  '';
 
   programs.vscode = {
     enable = true;
@@ -261,6 +255,13 @@ in
         ) "" vals;
     in
     {
+      "fish/conf.d/add-nix-paths.fish".text = ''
+        # This will prepend Home Manager and Nix Darwin paths but it will not prepend if we're in a Nix shell
+        set filtered_path (string match -v '/nix/store/*-ghostty-*/*' $PATH)
+        if not string match -q '/nix/store/*' (string join \n $filtered_path)
+          set -x fish_user_paths /etc/profiles/per-user/$USER/bin /run/current-system/sw/bin
+        end
+      '';
       "fish/conf.d/tide-vars.fish".text = fishSetVars (import ./tide-config.nix);
 
       "ghostty/config" = {
