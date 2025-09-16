@@ -52,7 +52,6 @@
             config.allowUnfreePredicate =
               pkg:
               builtins.elem (nixpkgs.lib.getName pkg) [
-                "aldente"
                 "Xcode.app"
               ];
           };
@@ -66,6 +65,13 @@
             {
               nixpkgs.overlays = [
                 (self: super: {
+                  aldente = super.aldente.overrideAttrs (oldAttrs: rec {
+                    version = "1.35.1";
+                    src = super.fetchurl {
+                      url = "https://github.com/AppHouseKitchen/AlDente-Battery_Care_and_Monitoring/releases/download/${version}/AlDente.dmg";
+                      hash = "sha256-OjajT9goWbK3dKmkvt/qbcjlytg/xOPxNEZWE7h24Uc=";
+                    };
+                  });
                   xcode = super.darwin.requireXcode "26_Apple_silicon" "sha256-dlfZ2sM6a9pUPdukoMoqvQAj7EEUyj0a/VkXKwkkFT8=";
 
                   ghostty-bin = pkgs-unstable.ghostty-bin.overrideAttrs (oldAttrs: rec {
@@ -76,7 +82,6 @@
                     };
                   });
                   vscodium = pkgs-unstable.vscodium;
-                  aldente = pkgs-unstable.aldente;
                 })
                 personal-nur.overlay
               ];

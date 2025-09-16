@@ -36,6 +36,7 @@
       "pandan"
       "mactracker"
       "rapidapi"
+      "aldente"
     ];
 
   programs.fish = {
