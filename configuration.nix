@@ -6,9 +6,6 @@
   ...
 }:
 
-let
-  ghostty = pkgs.DimitarNestorov.ghostty;
-in
 {
   nix.settings = {
     experimental-features = "nix-command flakes";
@@ -37,6 +34,8 @@ in
       "taccy"
       "velja"
       "pandan"
+      "mactracker"
+      "rapidapi"
     ];
 
   environment = {
@@ -51,7 +50,7 @@ in
         keka
         git
         imgcat
-        ghostty
+        ghostty-bin
         colorls
         iina
         vscodium
@@ -82,16 +81,14 @@ in
 
   fonts = {
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      pkgs.nerd-fonts.jetbrains-mono
       (google-fonts.override { fonts = [ "PublicSans" ]; })
     ];
   };
 
   programs.nix-index-database.comma.enable = true;
 
-  security.pam.enableSudoTouchIdAuth = true;
-
-  services.nix-daemon.enable = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   services.tailscale.enable = true;
 
@@ -109,7 +106,9 @@ in
     };
   };
 
-  system.activationScripts.postUserActivation.text = ''
+  system.primaryUser = "dimitar";
+
+  system.activationScripts.postActivation.text = ''
     		sudo xcode-select -s ${pkgs.xcode}
     	'';
 
@@ -162,7 +161,7 @@ in
             "${pkgs.vscodium}/Applications/VSCodium.app"
             "${pkgs.xcode}"
             "${pkgs.xcode}/Contents/Developer/Applications/Simulator.app"
-            "${ghostty}/Applications/Ghostty.app"
+            "${pkgs.ghostty-bin}/Applications/Ghostty.app"
             "/Applications/Figma.app"
             "/Applications/Slack.app"
             "/Applications/Microsoft Teams.app"
@@ -178,7 +177,7 @@ in
             "${pkgs.vscodium}/Applications/VSCodium.app"
             "${pkgs.xcode}"
             "${pkgs.xcode}/Contents/Developer/Applications/Simulator.app"
-            "${ghostty}/Applications/Ghostty.app"
+            "${pkgs.ghostty-bin}/Applications/Ghostty.app"
             "${pkgs.google-chrome}/Applications/Google Chrome.app"
             "/System/Applications/Utilities/Screen Sharing.app"
             "/System/Applications/Launchpad.app"

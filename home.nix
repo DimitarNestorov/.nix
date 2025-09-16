@@ -116,7 +116,7 @@ in
   programs.direnv = {
     enable = true;
 
-    nix-direnv.enable = true;
+    # nix-direnv.enable = true;
   };
 
   programs.fish = {
@@ -177,72 +177,76 @@ in
     enable = true;
     package = vscode;
     mutableExtensionsDir = false;
-    extensions =
-      with pkgs.vscode-extensions;
-      [
-        jnoortheen.nix-ide
-        mhutchie.git-graph
-        mkhl.direnv
-        esbenp.prettier-vscode
-        mikestead.dotenv
-        vscode-icons-team.vscode-icons
-        bradlc.vscode-tailwindcss
-        yoavbls.pretty-ts-errors
-        dbaeumer.vscode-eslint
-      ]
-      ++ (pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "robotframework-lsp";
-          publisher = "robocorp";
-          version = "1.13.0";
-          sha256 = "sha256-3hyKKAMUy4kXGRWBQCL4adV1W6xtgS1OYhJJYSzswbo=";
-        }
-      ])
-      ++ (
-        if type == "work" then
-          [ ]
-        else
+    profiles = {
+      default = {
+        extensions =
+          with pkgs.vscode-extensions;
           [
-            redhat.vscode-xml
-            ziglang.vscode-zig
-            tauri-apps.tauri-vscode
-            rust-lang.rust-analyzer
+            jnoortheen.nix-ide
+            mhutchie.git-graph
+            mkhl.direnv
+            esbenp.prettier-vscode
+            mikestead.dotenv
+            vscode-icons-team.vscode-icons
+            bradlc.vscode-tailwindcss
+            yoavbls.pretty-ts-errors
+            dbaeumer.vscode-eslint
           ]
-      );
-    keybindings = [
-      {
-        key = "shift+cmd+g";
-        command = "-workbench.action.terminal.findPrevious";
-        when = "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported";
-      }
-      {
-        key = "shift+cmd+g";
-        command = "-editor.action.previousMatchFindAction";
-        when = "editorFocus";
-      }
-      {
-        key = "shift+cmd+g";
-        command = "workbench.view.scm";
-        when = "workbench.scm.active";
-      }
-      {
-        key = "ctrl+shift+g";
-        command = "-workbench.view.scm";
-        when = "workbench.scm.active";
-      }
-      {
-        key = "ctrl+shift+-";
-        command = "workbench.action.navigateBack";
-      }
-      {
-        key = "ctrl+-";
-        command = "-workbench.action.navigateBack";
-      }
-      {
-        key = "ctrl+shift+-";
-        command = "-workbench.action.navigateForward";
-      }
-    ];
+          ++ (pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+            {
+              name = "robotframework-lsp";
+              publisher = "robocorp";
+              version = "1.13.0";
+              sha256 = "sha256-3hyKKAMUy4kXGRWBQCL4adV1W6xtgS1OYhJJYSzswbo=";
+            }
+          ])
+          ++ (
+            if type == "work" then
+              [ ]
+            else
+              [
+                redhat.vscode-xml
+                ziglang.vscode-zig
+                tauri-apps.tauri-vscode
+                rust-lang.rust-analyzer
+              ]
+          );
+        keybindings = [
+          {
+            key = "shift+cmd+g";
+            command = "-workbench.action.terminal.findPrevious";
+            when = "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported";
+          }
+          {
+            key = "shift+cmd+g";
+            command = "-editor.action.previousMatchFindAction";
+            when = "editorFocus";
+          }
+          {
+            key = "shift+cmd+g";
+            command = "workbench.view.scm";
+            when = "workbench.scm.active";
+          }
+          {
+            key = "ctrl+shift+g";
+            command = "-workbench.view.scm";
+            when = "workbench.scm.active";
+          }
+          {
+            key = "ctrl+shift+-";
+            command = "workbench.action.navigateBack";
+          }
+          {
+            key = "ctrl+-";
+            command = "-workbench.action.navigateBack";
+          }
+          {
+            key = "ctrl+shift+-";
+            command = "-workbench.action.navigateForward";
+          }
+        ];
+      };
+    };
   };
 
   xdg.configFile =
