@@ -16,4 +16,4 @@ sudo chflags hidden /nix
 # TODO: This command is going to fail, let's make a pause here to let me download Xcode and add it to the store, require me to press enter to continue
 /nix/var/nix/profiles/default/bin/nix --extra-experimental-features "nix-command flakes" run nix-darwin -- switch --flake ~/.nix
 
-sudo chsh -s /etc/profiles/per-user/dimitar/bin/fish dimitar
+sudo chsh -s /run/current-system/sw/bin/fish dimitar

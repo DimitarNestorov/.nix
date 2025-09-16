@@ -26,7 +26,7 @@ let
   vscodeSettings = pkgs.writeText "settings.json" (
     builtins.toJSON (
       {
-        "direnv.path.executable" = "/etc/profiles/per-user/dimitar/bin/direnv";
+        "direnv.path.executable" = "/run/current-system/sw/bin/direnv";
         "editor.accessibilitySupport" = "off";
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
         "editor.fontFamily" = "JetBrainsMono Nerd Font";
@@ -59,7 +59,7 @@ let
             "args" = [ "-l" ];
           };
           "fish" = {
-            "path" = "/etc/profiles/per-user/dimitar/bin/fish";
+            "path" = "/run/current-system/sw/bin/fish";
             "args" = [ "-l" ];
           };
         };
@@ -112,12 +112,6 @@ in
   ];
 
   programs.home-manager.enable = true;
-
-  programs.direnv = {
-    enable = true;
-
-    # nix-direnv.enable = true;
-  };
 
   programs.fish = {
     enable = true;
@@ -259,13 +253,6 @@ in
         ) "" vals;
     in
     {
-      "fish/conf.d/add-nix-paths.fish".text = ''
-        # This will prepend Home Manager and Nix Darwin paths but it will not prepend if we're in a Nix shell
-        set filtered_path (string match -v '/nix/store/*-ghostty-*/*' $PATH)
-        if not string match -q '/nix/store/*' (string join \n $filtered_path)
-          set -x fish_user_paths /etc/profiles/per-user/$USER/bin /run/current-system/sw/bin
-        end
-      '';
       "fish/conf.d/tide-vars.fish".text = fishSetVars (import ./tide-config.nix);
 
       "ghostty/config" = {
