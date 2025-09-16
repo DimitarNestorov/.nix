@@ -68,7 +68,7 @@
             {
               nixpkgs.overlays = [
                 (self: super: {
-                  xcode = pkgs-unstable.darwin.xcode_16_2;
+                  xcode = pkgs-unstable.darwin.requireXcode "26_Apple_silicon" "sha256-dlfZ2sM6a9pUPdukoMoqvQAj7EEUyj0a/VkXKwkkFT8=";
                   devenv = pkgs-unstable.devenv;
                   vscodium = pkgs-unstable.vscodium;
                   mactracker = pkgs-unstable.mactracker;
