@@ -27,6 +27,9 @@ let
     builtins.toJSON (
       {
         "direnv.path.executable" = "/run/current-system/sw/bin/direnv";
+        "chat.commandCenter.enabled" = false;
+        "chat.extensionTools.enabled" = false;
+        "chat.focusWindowOnConfirmation" = false;
         "editor.accessibilitySupport" = "off";
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
         "editor.fontFamily" = "JetBrainsMono Nerd Font";
@@ -65,6 +68,9 @@ let
         };
         "update.mode" = "none";
         "workbench.colorTheme" = "Visual Studio Light";
+        "workbench.editorAssociations" = {
+          "*.svg" = "default";
+        };
         "workbench.iconTheme" = "vscode-icons";
         "vsicons.dontShowNewVersionMessage" = true;
         "redhat.telemetry.enabled" = false;
