@@ -2,13 +2,13 @@
   description = "System configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-25.05-darwin";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-25.11-darwin";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
+    darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     personal-nur.url = "github:DimitarNestorov/Nix-user-repository-packages";
     personal-nur.inputs.nixpkgs.follows = "nixpkgs";
@@ -65,22 +65,10 @@
             {
               nixpkgs.overlays = [
                 (self: super: {
-                  aldente = super.aldente.overrideAttrs (oldAttrs: rec {
-                    version = "1.35.1";
-                    src = super.fetchurl {
-                      url = "https://github.com/AppHouseKitchen/AlDente-Battery_Care_and_Monitoring/releases/download/${version}/AlDente.dmg";
-                      hash = "sha256-OjajT9goWbK3dKmkvt/qbcjlytg/xOPxNEZWE7h24Uc=";
-                    };
+                  direnv = super.direnv.overrideAttrs (_: {
+                    doCheck = false;
                   });
                   xcode = super.darwin.requireXcode "26_Apple_silicon" "sha256-dlfZ2sM6a9pUPdukoMoqvQAj7EEUyj0a/VkXKwkkFT8=";
-
-                  ghostty-bin = pkgs-unstable.ghostty-bin.overrideAttrs (oldAttrs: rec {
-                    version = "1.2.0";
-                    src = super.fetchurl {
-                      url = "https://release.files.ghostty.org/${version}/Ghostty.dmg";
-                      hash = "sha256-QyHKQ00iRxWS6GwPfRAi9RDSlgX/50N0+MASmnPGAo4=";
-                    };
-                  });
                   vscodium = pkgs-unstable.vscodium;
                 })
                 personal-nur.overlay
