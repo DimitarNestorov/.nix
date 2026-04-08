@@ -65,11 +65,13 @@
             {
               nixpkgs.overlays = [
                 (self: super: {
+                  # https://github.com/NixOS/nixpkgs/issues/507531#issuecomment-4197924342
                   direnv = super.direnv.overrideAttrs (_: {
                     doCheck = false;
                   });
                   xcode = super.darwin.requireXcode "26_Apple_silicon" "sha256-dlfZ2sM6a9pUPdukoMoqvQAj7EEUyj0a/VkXKwkkFT8=";
                   vscodium = pkgs-unstable.vscodium;
+                  fish = pkgs-unstable.fish;
                 })
                 personal-nur.overlay
               ];
