@@ -153,13 +153,13 @@ in
 
   programs.git = {
     enable = true;
-    userName = "Dimitar Nestorov";
-    userEmail =
+    settings = {
+      user.name = "Dimitar Nestorov";
+      user.email =
       if type == "work" then
         "dimitar.nestorov@callstack.com"
       else
         "8790386+dimitarnestorov@users.noreply.github.com";
-    extraConfig = {
       core.editor = "/etc/profiles/per-user/dimitar/bin/nano";
       push.autoSetupRemote = true;
       push.default = "current";
