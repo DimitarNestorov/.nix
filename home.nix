@@ -124,7 +124,7 @@ in
 
     shellAliases = {
       darwin-rebuild-switch = "~/.nix/rebuild-and-switch.sh";
-      ls = "colorls";
+      ls = "eza";
       code = "codium";
     };
 

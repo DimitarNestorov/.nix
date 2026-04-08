@@ -61,7 +61,7 @@
         git
         imgcat
         ghostty-bin
-        colorls
+        eza
         iina
         vscodium
         tailscale
