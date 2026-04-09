@@ -1,0 +1,18 @@
+~/Library/Developer/Xcode/Archives/*
+~/Library/Developer/Xcode/iOS DeviceSupport/*/Symbols/System/Library/Caches/*
+~/.cache/torch/*
+~/.cache/tensorflow/*
+~/.cache/huggingface/*
+~/.ollama/models/*
+~/.Trash
+FINDER_METADATA
+~/Library/Caches/com.apple.FontRegistry/*
+~/Library/Caches/com.apple.spotlight/*
+~/Library/Caches/CloudKit/*
+/Users/dimitar/Library/Caches/com.apple.finder
+/Users/dimitar/Library/Mobile Documents*
+/Users/dimitar/Library/Caches/com.apple.FontRegistry*
+/Users/dimitar/Library/Caches/com.apple.spotlight*
+/Users/dimitar/Library/Caches/com.apple.Spotlight*
+/Users/dimitar/Library/Caches/CloudKit*
+/Users/dimitar/.cache/huggingface*

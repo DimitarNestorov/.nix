@@ -71,7 +71,7 @@
                   });
                   xcode = super.darwin.requireXcode "26_Apple_silicon" "sha256-dlfZ2sM6a9pUPdukoMoqvQAj7EEUyj0a/VkXKwkkFT8=";
                   vscodium = pkgs-unstable.vscodium;
-                  fish = pkgs-unstable.fish;
+                  fish = pkgs-unstable.fishMinimal;
                 })
                 personal-nur.overlay
               ];
