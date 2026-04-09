@@ -63,6 +63,7 @@
         ghostty-bin
         eza
         bat
+        gitui
         iina
         vscodium
         tailscale
