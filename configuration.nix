@@ -62,6 +62,7 @@
         imgcat
         ghostty-bin
         eza
+        bat
         iina
         vscodium
         tailscale

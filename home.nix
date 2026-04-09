@@ -125,6 +125,7 @@ in
     shellAliases = {
       darwin-rebuild-switch = "~/.nix/rebuild-and-switch.sh";
       ls = "eza";
+      cat = "bat";
       code = "codium";
     };
 
